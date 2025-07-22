@@ -6,7 +6,7 @@
   <title>Shalini Raval – Portfolio</title>
 
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="hero.css" />
+  <link rel="stylesheet" href="home.css" />
 </head>
 
 <body>
@@ -53,6 +53,11 @@
                     >
                     <img class="icon" src="images/linkedin.svg" alt="" />
                 </a>
+                <a href="https://github.com/smraval" aria-label="GitHub">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.2.8-.5v-2c-3.3.7-4-1.6-4-1.6a3.2 3.2 0 0 0-1.3-1.7c-1.1-.8.1-.8.1-.8a2.5 2.5 0 0 1 1.8 1.2 2.6 2.6 0 0 0 3.6 1 2.6 2.6 0 0 1 .8-1.6c-2.6-.3-5.4-1.3-5.4-5.8a4.6 4.6 0 0 1 1.2-3.2 4.3 4.3 0 0 1 .1-3.2s1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2a4.3 4.3 0 0 1 .1 3.2 4.6 4.6 0 0 1 1.2 3.2c0 4.5-2.8 5.5-5.4 5.8a3 3 0 0 1 .9 2.2v3.2c0 .3.2.6.8.5A12 12 0 0 0 12 .3Z" />
+                </svg>
+            </a>
             </div>
         </div>
 
@@ -66,29 +71,30 @@
     <div class="project-grid">
       <!-- ─ text column ─ -->
       <div class="project-text">
-        <h2 class="project-title">Pearl.</h2>
+        <h2 class="project-title"><a href="projs/pearl.html">Pearl.</a></h2>
         <hr class="project-divider" />
 
         <div class="project-info">
           <div class="project-meta">
-            <span class="project-date">MARCH 2025</span>
+            <span class="project-date">MARCH 2025</span>
             <img class="figma-icon" src="images/figma.svg" alt="" />
           </div>
 
-          <p class="project-award">
-            🏆 GRAND PRIZE @ SBCL DESIGNATHON ’25
-          </p>
+          <div class="project-content-column">
+            <p class="project-award">
+              🏆 GRAND PRIZE @ SBCL DESIGNATHON '25
+            </p>
+            <p class="project-description">
+              Pearl motivates users to "Lock in, Lock out, and Repeat," utilizing
+              the Pomodoro focus method to break down work sessions into 25‑minute
+              intervals followed by 5 minute breaks.
+            </p>
+          </div>
         </div>
-
-        <p class="project-description">
-          Pearl motivates users to “Lock in, Lock out, and Repeat,” utilizing
-          the Pomodoro focus method to break down work sessions into 25‑minute
-          intervals followed by 5 minute breaks.
-        </p>
       </div>
 
       <!-- ─ media column ─ -->
-      <figure class="project-media ratio-16x7">
+      <figure class="project-media">
         <img
           src="images/prl.svg"
           alt="Pearl app mockups"
@@ -103,30 +109,31 @@
     <div class="project-grid">
       <!-- ─ text column ─ -->
       <div class="project-text">
-        <h2 class="project-title">SpeakEasy</h2>
+        <h2 class="project-title"><a href="projs/speakeasy.html">SpeakEasy</a></h2>
         <hr class="project-divider" />
 
         <div class="project-info">
           <div class="project-meta">
-            <span class="project-date">FEBRUARY 2025</span>
+            <span class="project-date">FEBRUARY 2025</span>
             <img class="figma-icon" src="images/figma.svg" alt="" />
           </div>
 
-          <p class="project-award">
-            🏆 SECOND PLACE @ SVC DESIGNATHON
-          </p>
+          <div class="project-content-column">
+            <p class="project-award">
+              🏆 SECOND PLACE @ SVC DESIGNATHON
+            </p>
+            <p class="project-description">
+              Speak Easy is an interactive speech‑based game app that gamifies
+              daily brain‑teasers, capturing stuttered speech recordings to enhance
+              speech‑to‑text accuracy while driving user engagement through fun,
+              voice‑driven challenges.
+            </p>
+          </div>
         </div>
-
-        <p class="project-description">
-          Speak Easy is an interactive speech‑based game app that gamifies
-          daily brain‑teasers, capturing stuttered speech recordings to enhance
-          speech‑to‑text accuracy while driving user engagement through fun,
-          voice‑driven challenges.
-        </p>
       </div>
 
       <!-- ─ media column ─ -->
-      <figure class="project-media ratio-16x7">
+      <figure class="project-media">
         <img src="images/speak-easy.svg" alt="SpeakEasy app screens" loading="lazy"/>
       </figure>
     </div>
