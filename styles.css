@@ -16,7 +16,7 @@
   --grad-dynamic: linear-gradient(90deg,
                       #ff6b6b, #ffb86b, #4be1ec, #ff6b6b);
 
-  --font-body:    -apple-system, BlinkMacSystemFont, "Segoe UI",
+  --font-body:    'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI",
                   Roboto, Helvetica, Arial, sans-serif;
   --font-heading: "Redaction", serif;
   --font-subtitle:'DM Sans', sans-serif;

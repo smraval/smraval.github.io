@@ -10,61 +10,153 @@
 </head>
 
 <body>
-  <!-- ─── NAVBAR ─── -->
-  <nav>
-    <a href="https://github.com/smraval" aria-label="GitHub">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path
-          d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.2.8-.5v-2
-             c-3.3.7-4-1.6-4-1.6a3.2 3.2 0 0 0-1.3-1.7
-             c-1.1-.8.1-.8.1-.8a2.5 2.5 0 0 1 1.8 1.2
-             2.6 2.6 0 0 0 3.6 1 2.6 2.6 0 0 1 .8-1.6
-             c-2.6-.3-5.4-1.3-5.4-5.8a4.6 4.6 0 0 1 1.2-3.2
-             4.3 4.3 0 0 1 .1-3.2s1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0
-             c2.3-1.5 3.3-1.2 3.3-1.2a4.3 4.3 0 0 1 .1 3.2
-             4.6 4.6 0 0 1 1.2 3.2c0 4.5-2.8 5.5-5.4 5.8
-             a3 3 0 0 1 .9 2.2v3.2c0 .3.2.6.8.5A12 12 0 0 0 12 .3Z" />
-      </svg>
-    </a>
+    <!-- ─── NAVBAR ─── -->
+    <nav>
 
-    <a href="#about">about</a>
+        <a href="about.html">about</a>
 
-    <a class="button" href="resume.pdf" target="_blank" rel="noopener">
-      resume
-    </a>
-  </nav>
+        <a class="button" href="resume.pdf" target="_blank" rel="noopener">
+        resume
+        </a>
+    </nav>
 
-  <main>
-    <div class= "header">
-        <h1>shalini raval</h1>
-        <p class="subtitle">
-            <span class="role">developer </span>,
-            <span class="role">designer</span>,
-            <span class="role">researcher</span>
+    <main>
+        <div class= "header">
+            <h1>shalini raval</h1>
+            <p class="subtitle">
+                <span class="role">developer </span>,
+                <span class="role">designer</span>,
+                <span class="role">researcher</span>
+            </p>
+            <div class="social">
+                <!-- Mail -->
+                <a href="mailto:smraval@ucsc.edu" 
+                    aria-label="Email"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >
+                    <svg viewBox="0 0 24 24">
+                    <path d="M20 4H4a2 2 0 0 0-2 2v12a2
+                            2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2
+                            2 0 0 0-2-2Z" fill="none" stroke="currentColor"
+                            stroke-width="2" />
+                    <polyline points="22,6 12,13 2,6" fill="none"
+                                stroke="currentColor" stroke-width="2" />
+                    </svg>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/shaliniraval" 
+                    aria-label="LinkedIn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >
+                    <img class="icon" src="images/linkedin.svg" alt="" />
+                </a>
+            </div>
+        </div>
+
+        <div class="arrow" aria-hidden="true">⌄</div>
+    </main>
+
+<!-- ─── PROJECTS SECTION ─── -->
+<section id="projects" class="projects">
+  <!-- Pearl -->
+  <article class="project">
+    <div class="project-grid">
+      <!-- ─ text column ─ -->
+      <div class="project-text">
+        <h2 class="project-title">Pearl.</h2>
+        <hr class="project-divider" />
+
+        <div class="project-info">
+          <div class="project-meta">
+            <span class="project-date">MARCH 2025</span>
+            <img class="figma-icon" src="images/figma.svg" alt="" />
+          </div>
+
+          <p class="project-award">
+            🏆 GRAND PRIZE @ SBCL DESIGNATHON ’25
+          </p>
+        </div>
+
+        <p class="project-description">
+          Pearl motivates users to “Lock in, Lock out, and Repeat,” utilizing
+          the Pomodoro focus method to break down work sessions into 25‑minute
+          intervals followed by 5 minute breaks.
         </p>
-        <div class="social">
-            <!-- Mail -->
+      </div>
+
+      <!-- ─ media column ─ -->
+      <figure class="project-media ratio-16x7">
+        <img
+          src="images/prl.svg"
+          alt="Pearl app mockups"
+          loading="lazy"
+        />
+      </figure>
+    </div>
+  </article>
+
+  <!-- SpeakEasy -->
+  <article class="project">
+    <div class="project-grid">
+      <!-- ─ text column ─ -->
+      <div class="project-text">
+        <h2 class="project-title">SpeakEasy</h2>
+        <hr class="project-divider" />
+
+        <div class="project-info">
+          <div class="project-meta">
+            <span class="project-date">FEBRUARY 2025</span>
+            <img class="figma-icon" src="images/figma.svg" alt="" />
+          </div>
+
+          <p class="project-award">
+            🏆 SECOND PLACE @ SVC DESIGNATHON
+          </p>
+        </div>
+
+        <p class="project-description">
+          Speak Easy is an interactive speech‑based game app that gamifies
+          daily brain‑teasers, capturing stuttered speech recordings to enhance
+          speech‑to‑text accuracy while driving user engagement through fun,
+          voice‑driven challenges.
+        </p>
+      </div>
+
+      <!-- ─ media column ─ -->
+      <figure class="project-media ratio-16x7">
+        <img src="images/speak-easy.svg" alt="SpeakEasy app screens" loading="lazy"/>
+      </figure>
+    </div>
+  </article>
+</section>
+
+
+
+
+
+    <!-- ─── FOOTER ─── -->
+    <footer class="contact">
+        <p>feel free to reach out</p>
+        <div class="contact-links">
             <a href="mailto:smraval@ucsc.edu" aria-label="Email">
                 <svg viewBox="0 0 24 24">
-                <path d="M20 4H4a2 2 0 0 0-2 2v12a2
-                        2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2
-                        2 0 0 0-2-2Z" fill="none" stroke="currentColor"
-                        stroke-width="2" />
-                <polyline points="22,6 12,13 2,6" fill="none"
-                            stroke="currentColor" stroke-width="2" />
+                    <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Z" fill="none" stroke="currentColor" stroke-width="2" />
+                    <polyline points="22,6 12,13 2,6" fill="none" stroke="currentColor" stroke-width="2" />
                 </svg>
             </a>
-
-            <!-- LinkedIn -->
+            <a href="https://github.com/smraval" aria-label="GitHub">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.2.8-.5v-2c-3.3.7-4-1.6-4-1.6a3.2 3.2 0 0 0-1.3-1.7c-1.1-.8.1-.8.1-.8a2.5 2.5 0 0 1 1.8 1.2 2.6 2.6 0 0 0 3.6 1 2.6 2.6 0 0 1 .8-1.6c-2.6-.3-5.4-1.3-5.4-5.8a4.6 4.6 0 0 1 1.2-3.2 4.3 4.3 0 0 1 .1-3.2s1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2a4.3 4.3 0 0 1 .1 3.2 4.6 4.6 0 0 1 1.2 3.2c0 4.5-2.8 5.5-5.4 5.8a3 3 0 0 1 .9 2.2v3.2c0 .3.2.6.8.5A12 12 0 0 0 12 .3Z" />
+                </svg>
+            </a>
             <a href="https://www.linkedin.com/in/shaliniraval" aria-label="LinkedIn">
                 <img class="icon" src="images/linkedin.svg" alt="" />
             </a>
         </div>
-    </div>
-
-    <div class="arrow" aria-hidden="true">⌄</div>
-  </main>
-
+    </footer>
 </body>
 </html>
 

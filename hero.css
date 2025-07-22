@@ -1,8 +1,8 @@
 *{box-sizing:border-box;margin:0;padding:0}
 
+
 /* ---------- base layout ---------- */
 body{
-  min-height:100vh;
   display:flex;
   flex-direction:column;
   background:#fff;
@@ -48,7 +48,7 @@ nav .button{
 }
 
 main{
-  flex:1;
+  min-height:calc(100vh - 64px);
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -61,15 +61,16 @@ main{
   display:flex;
   flex-direction:column;
   align-items:flex-start;
-  border: 1px solid rgba(0,0,0,.15);
+  /* border: 1px solid rgba(0,0,0,.15); */
 }
 
 h1{
   font-family:var(--font-heading);
   font-weight:700;
-  font-size:3.5rem;
+  font-size:5.5rem;
   color:var(--brand-blue);
   letter-spacing:.035em;
+  line-height:.85; 
 }
 .subtitle{
   display:flex;
@@ -120,7 +121,7 @@ h1{
 
 /* bouncing chevron */
 .arrow{
-  margin-top:3rem;
+  margin-top:1rem;
   font-size:2rem;
   color:#c0c0c0;
   animation:down 1.6s infinite ease-in-out;
@@ -135,4 +136,304 @@ h1{
 @keyframes grad-shift{
   0%   { background-position: 0% 50%; }
   100% { background-position: 100% 50%; }
+}
+
+/* ---------- projects section  ---------- */
+
+:root {
+  --project-max-width: 1200px;
+  --project-side-pad: clamp(1.5rem, 5vw, 4rem);
+  --project-block-pad: clamp(5rem, 10vw, 7.5rem);
+  --project-line: rgba(0,0,0,.10);
+  --project-title-gray: var(--gray);
+  --project-meta-gray: #b2b2b2;
+  --project-award-blue: var(--brand-blue);
+  --proj-line: rgba(0,0,0,.10);
+  --meta-col-width: 130px;       /* width of date/Figma column */
+}
+/* wrapper */
+.projects{
+  background:#fff;
+  margin:0;
+  padding:0;
+}
+
+/* each project row */
+.project{
+  border-top:1px solid var(--proj-line);
+  padding-block:6rem;
+}
+
+
+
+/* 2‑col outer grid */
+.project-grid{
+  max-width:1200px;
+  margin-inline:auto;
+  padding-inline:clamp(1.5rem,5vw,4rem);
+
+  display:grid;
+  grid-template-columns:minmax(280px,420px) 1fr;
+  column-gap:clamp(2.5rem,6vw,6rem);
+  align-items:center;
+}
+
+/* left column */
+.project-text{display:flex;flex-direction:column;gap:0}
+
+/* title */
+.project-title{
+  font-family:var(--font-heading);
+  font-weight:700;
+  font-size:clamp(3rem,6vw,5rem);
+  line-height:.9;
+  color:var(--gray);
+  margin:0;
+}
+
+/* thin rule under title */
+.project-divider{
+  width:100%;
+  height:1px;
+  border:0;
+  background:var(--proj-line);
+  margin:1.25rem 0 1.5rem;
+}
+
+/* meta + award row (2‑col) */
+.project-info{
+  display:grid;
+  grid-template-columns:var(--meta-col-width) 1fr;
+  column-gap:2rem;
+  align-items:start;
+  margin-bottom:1.5rem;
+}
+
+/* meta stack */
+.project-meta{
+  display:flex;
+  flex-direction:column;
+  gap:.45rem;
+}
+
+.project-date{
+  font-family:var(--font-body);
+  font-size:.75rem;
+  font-weight:600;
+  letter-spacing:.12em;
+  color:#9a9a9a;
+  text-transform:uppercase;
+  line-height:1;
+}
+
+.figma-icon{
+  width:14px;
+  height:20px;
+  border-radius:2px;
+}
+
+/* award text */
+.project-award{
+  font-family:var(--font-body);
+  font-size:.875rem;
+  font-weight:600;
+  letter-spacing:.04em;
+  color:var(--gray);
+  margin:0;
+  line-height:1.4;
+}
+
+/* description */
+.project-description{
+  font-family:var(--font-body);
+  font-size:1rem;
+  line-height:1.6;
+  color:var(--gray);
+  max-width:32ch;
+  margin:0;
+}
+
+/* media column */
+.project-media{
+  width:100%;
+  border-radius:32px;
+  overflow:hidden;
+  aspect-ratio:16/7;
+}
+.project-media img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  border-radius:inherit;
+}
+
+/* ---------- responsive tweaks ---------- */
+@media(max-width:1024px){
+  .project-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .project{padding-block:4rem}
+  .project-grid{grid-template-columns:1fr}
+  .project-media{order:-1;border-radius:24px}
+  .project-info{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .project{padding-block:3rem}
+  .project-title{font-size:2.5rem}
+  .project-media{border-radius:20px}
+}
+
+/* optional aspect helpers */
+.ratio-16x7 {
+  aspect-ratio:16/7;
+}
+
+/* media */
+@media (max-width:1024px){
+  .project-grid{
+    grid-template-columns:1fr 1fr;
+    column-gap:3rem;
+  }
+  .project-description{max-width:38ch;}
+}
+
+@media (max-width:768px){
+  .project{
+    padding-block:4.5rem;
+  }
+  .project-grid{
+    grid-template-columns:1fr;
+    text-align:left;
+  }
+  .project-col--media{
+    order:-1; /* image first on mobile? remove if not wanted */
+  }
+  .project-title{
+    font-size:clamp(2.5rem,8vw,3.5rem);
+  }
+  .project-description{max-width:none;}
+  .project-media{max-width:100%;border-radius:24px;}
+}
+
+@media (max-width:480px){
+  .project{
+    padding-block:3.5rem;
+  }
+  .project-title{
+    font-size:2.5rem;
+  }
+  .project-media{border-radius:20px;}
+}
+
+/* ---------- FOOTER ---------- */
+.contact {
+  background: transparent;
+  text-align: center;
+  margin-top: 4rem;
+  border-top:1px solid rgba(0,0,0,.10);  /* hairline divider */
+  padding:3rem 2rem;                     /* ≈48 px top/bottom, 32 px sides */
+  font-size:0.875rem;                    /* 14 px body copy */
+  line-height:1.5;
+  width:100%;
+}
+
+
+.contact p {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--brand-blue);
+  margin: 0 0 1rem 0;
+  font-weight: 400;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.contact-links a {
+  color: var(--brand-blue);
+  text-decoration: none;
+  transition: opacity 0.25s ease;
+}
+
+.contact-links a:hover {
+  opacity: 0.7;
+}
+
+.contact-links svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.contact-links .icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+/* media queries */
+@media (max-width: 1024px) {
+  .projects {
+    padding: 4rem 2rem;
+  }
+  
+  .project-content {
+    gap: 4rem;
+  }
+  
+  .project-title {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects {
+    padding: 3rem 1.5rem;
+  }
+  
+  .project {
+    margin-bottom: 8rem;
+  }
+  
+  .project-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .project-title {
+    font-size: 3.5rem;
+  }
+  
+  .project-description {
+    max-width: none;
+  }
+  
+  .showcase-container {
+    height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects {
+    padding: 2rem 1rem;
+  }
+  .project {
+    margin-bottom: 6rem;
+  }
+  .project-content {
+    gap: 2rem;
+  }
+  .project-title {
+    font-size: 2.5rem;
+  }
+  .showcase-container {
+    height: 280px;
+  }
+  footer.contact{
+    padding:2rem 1rem;                   /* ≈32 px / 16 px on small screens */
+    font-size:0.8125rem;                 /* 13 px for legibility */
+  }
 }
