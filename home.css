@@ -1,6 +1,6 @@
 *{box-sizing:border-box;margin:0;padding:0}
 
-/* ---------- base layout ---------- */
+
 body{
   display:flex;
   flex-direction:column;
@@ -8,7 +8,42 @@ body{
   font-family:var(--font-body);
 }
 
-/* ---------- navbar ---------- */
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(
+    -45deg,
+    #f0f4ff,
+    #e0ebff,
+    #d6e4ff,
+    #eef2ff,
+    #fff4ed,
+    #f3f0ff,
+    #e8efff,
+    #f8faff
+  );
+  background-size: 200% 200%;
+  animation: gradientShift 25s ease infinite;
+  z-index: -2;
+  transition: opacity 0.6s ease;
+}
+
+
+body.scrolled::before {
+  opacity: 0.3;
+}
+
+
+body:not(.home-page)::before {
+  display: none;
+}
+
+
 nav{
   width:100%;
   padding:24px 48px;
@@ -17,19 +52,37 @@ nav{
   align-items:center;
   gap:32px;
   font-size:1rem;
-  border-bottom:1px solid rgba(0,0,0,.05);
+  position: relative;
+  z-index: 3;
+  background: transparent;
+}
+
+
+body:not(.home-page) nav {
+  background: white;
+  border-bottom: 1px solid rgba(0,0,0,.05);
 }
 nav a{
   color:var(--gray);
   text-decoration:none;
   transition:all .35s ease;
 }
+
+nav a.active {
+  color:var(--brand-blue);
+  font-weight:500;
+}
+
+nav a.active:hover {
+  background-image: none;
+  background-clip: initial;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: var(--brand-blue);
+  color: var(--brand-blue);
+}
 nav a svg{width:24px;height:24px;fill:currentColor}
 nav a:hover{
-  background-image:var(--grad-dynamic);
-  background-size:200%;
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  color:var(--brand-blue);
 }
 
 nav .button{
@@ -38,12 +91,65 @@ nav .button{
   justify-content:center;            
   gap:.4em;                          
 
-  padding:6px 20px;
-  border:1px solid currentColor;
-  border-radius:9999px;
+  padding:10px 28px;
+  border:1px solid rgba(155, 176, 206, 0.3);
+  border-radius:30px;
   cursor:pointer;
+  font-weight:500;
+  font-size:0.875rem;
+  letter-spacing:0.025em;
+  color:var(--gray);
+  background:linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.6)
+  );
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  box-shadow:
+    0 8px 32px rgba(155, 176, 206, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(155, 176, 206, 0.1);
+  position:relative;
+  overflow:hidden;
 
-  transition:background .25s ease,color .25s ease,border-color .25s ease;
+  transition:all .4s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+nav .button::before {
+  content:'';
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition:left 0.6s ease;
+}
+
+nav .button:hover::before {
+  left:100%;
+}
+
+nav .button:hover{
+  background:linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 255, 255, 0.8)
+  );
+  border-color:var(--brand-blue);
+  color:var(--brand-blue) !important;
+  transform:translateY(-2px);
+  box-shadow:
+    0 12px 40px rgba(155, 176, 206, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -1px 0 rgba(155, 176, 206, 0.2);
+  -webkit-text-fill-color:var(--brand-blue);
 }
 
 main{
@@ -54,6 +160,8 @@ main{
   align-items:center;
   text-align:center;
   padding:0 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .header {
@@ -65,28 +173,32 @@ main{
 h1{
   font-family:var(--font-heading);
   font-weight:700;
-  font-size:5.5rem;
-  color:var(--brand-blue);
-  letter-spacing:.035em;
-  line-height:.85; 
+  font-size:clamp(3.5rem, 8vw, 6rem);
+  color:#5b616c;
+  letter-spacing:-0.02em;
+  line-height:.9;
+  margin-bottom:0.5rem;
 }
 .subtitle{
   display:flex;
-  margin-top:0px;
+  margin-top:0;
+  margin-bottom:1.5rem;
   font-family:var(--font-subtitle);
-  font-size:1.25rem;
-  gap:.15rem;
-  align-self:flex-end;
+  font-size:1.375rem;
+  gap:.25rem;
+  align-self:flex-start;
+  font-weight:400;
 }
 
 .role{
   display:inline-block;          
-  color:var(--gray);
+  color:#6B7280;
   transition:all .35s ease;
-  cursor:default;                
+  cursor:default;
+  font-weight:400;
 }
 
-/* gradient on hover */
+
 .role:hover{
   background-image: var(--grad-dynamic);
   background-size: 300% 300%;         
@@ -97,19 +209,26 @@ h1{
   animation: grad-shift 2.5s linear infinite;
 }
 
-/* socials */
+
 .social{
-  margin-top:.6rem;
+  margin-top:0;
   display:flex;
   gap:16px;
-  align-self:flex-end;
+  align-self:flex-start;
 }
 .social a{
-  color:var(--brand-blue);
-  transition:opacity .25s ease;
+  color:#6B7280;
+  transition:all .3s ease;
 }
-.social a:hover{opacity:.7}
-.social svg{width:26px;height:26px;fill:currentColor}
+.social a:hover{
+  color:var(--brand-blue);
+}
+.social svg{
+  width:24px;
+  height:24px;
+  fill:currentColor;
+  display:block;
+}
 
 .social .icon{
   width:24px;
@@ -117,15 +236,20 @@ h1{
   display:block;         
 }
 
-/* bouncing chevron */
+
 .arrow{
-  margin-top:1rem;
-  font-size:2rem;
-  color:#c0c0c0;
-  animation:down 1.6s infinite ease-in-out;
+  margin-top:2rem;
+  font-size:1.5rem;
+  color:#9CA3AF;
+  animation:down 2s infinite ease-in-out;
+  cursor:pointer;
+  transition:color .3s ease;
+}
+.arrow:hover{
+  color:var(--brand-blue);
 }
 
-/* dynamic tings! */
+
 @keyframes down{
   0%{transform:translateY(0)}
   50%{transform:translateY(8px)}
@@ -135,8 +259,15 @@ h1{
   0%   { background-position: 0% 50%; }
   100% { background-position: 100% 50%; }
 }
+@keyframes gradientShift{
+  0% { background-position: 0% 30%; }
+  25% { background-position: 70% 40%; }
+  50% { background-position: 100% 70%; }
+  75% { background-position: 30% 100%; }
+  100% { background-position: 0% 30%; }
+}
 
-/* ---------- projects section ---------- */
+
 :root {
   --proj-line: rgba(0,0,0,.10);
   --meta-col-width: 130px;
@@ -146,6 +277,8 @@ h1{
   background:#fff;
   margin:0;
   padding:0;
+  position: relative;
+  z-index: 2;
 }
 
 .project{
@@ -172,7 +305,7 @@ h1{
   font-weight:700;
   font-size:clamp(1.5rem,6vw,3rem);
   line-height:1.1;
-  display: inline-block; /* makes the clipped background‑clip behave more predictably */
+  display: inline-block;
   overflow: visible;
   color:var(--gray);
   margin:0;
@@ -253,8 +386,8 @@ h1{
 
 .project-media {
   width: 100%;
-  max-width: 628px;        /* caps it at your desktop width */
-  aspect-ratio: 628/333;    /* correct proportional height */
+  max-width: 628px;
+  aspect-ratio: 628/333;
   overflow: hidden;
   border-radius: 32px;
 }
@@ -270,7 +403,7 @@ h1{
   display: block;
   width: 100%;
   height: 100%;
-  /* cover ensures no weird empty space at odd aspect ratios */
+
   object-fit: cover;
   transition: transform .3s ease;
 }
@@ -280,13 +413,13 @@ h1{
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-/* active (on click) = quick “press‑in” */
+
 .project-media a:active {
   transform: translateY(0) scale(0.98);
   box-shadow: 0 5px 10px rgba(0,0,0,0.05);
 }
 
-/* responsive tweaks */
+
 @media(min-width:1440px){
   .project-grid{
     padding-left:clamp(4rem,8vw,6rem);
@@ -313,7 +446,7 @@ h1{
   .project-media{
     width:100%;
     height:auto;
-    aspect-ratio:16/7;
+    aspect-ratio:628/333;
   }
 }
 
@@ -337,7 +470,7 @@ h1{
   .project-media{
     width:100%;
     height:auto;
-    aspect-ratio:16/7;
+    aspect-ratio:628/333;
   }
 }
 
@@ -353,7 +486,7 @@ h1{
     border-radius:24px;
     width:100%;
     height:auto;
-    aspect-ratio:16/7;
+    aspect-ratio:628/333;
   }
   .project-title{font-size:clamp(2.5rem,8vw,3.5rem)}
   .project-info{
@@ -364,14 +497,17 @@ h1{
 @media(max-width:480px){
   .project{padding-block:3.5rem}
   .project-title{font-size:2.5rem}
-  .project-media{border-radius:20px}
+  .project-media{
+    border-radius:20px;
+    aspect-ratio:628/333;
+  }
 }
 
 .ratio-16x7 {
   aspect-ratio:16/7;
 }
 
-/* ---------- footer ---------- */
+
 .contact {
   background: transparent;
   text-align: center;
@@ -422,7 +558,7 @@ h1{
   }
 }
 
-/* Project title links */
+
 .project-title a {
   color: inherit;
   text-decoration: none;
@@ -433,7 +569,116 @@ h1{
   color: var(--gray-light);
 }
 
-/* ─── PROJECT PAGE STYLES ─── */
+
+.back-link {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--gray);
+  text-decoration: none;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: var(--brand-blue);
+}
+
+
+.about-page {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 4rem;
+  background: white;
+  position: relative;
+  z-index: 2;
+}
+
+.about-container {
+  max-width: 1400px;
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.about-image {
+  position: relative;
+  overflow: visible;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  background: transparent;
+}
+
+.about-content h1 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #374151;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  text-align: left;
+}
+
+.gradient-text {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.gradient-text:hover {
+  background-image: var(--grad-dynamic);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: grad-shift 3s ease infinite;
+}
+
+.about-content p {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: #6B7280;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.about-content p:last-child {
+  margin-bottom: 0;
+}
+
+
+@media (max-width: 768px) {
+  .about-page {
+    padding: 2rem 1rem;
+  }
+  
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .about-image {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .about-content h1 {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-content p {
+    font-size: 1rem;
+    text-align: left;
+  }
+}
+
+
 .project-page {
   max-width: 1200px;
   margin: 0 auto;
@@ -531,7 +776,7 @@ h1{
   margin: 0 0 1rem 0;
 }
 
-/* Mobile responsive for project pages */
+
 @media (max-width: 768px) {
   .project-page {
     padding: 0 1rem;
