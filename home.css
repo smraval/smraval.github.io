@@ -48,13 +48,29 @@ nav{
   width:100%;
   padding:24px 48px;
   display:flex;
-  justify-content:flex-end;
+  justify-content:space-between;
   align-items:center;
   gap:32px;
   font-size:1rem;
   position: relative;
   z-index: 3;
   background: transparent;
+}
+
+.nav-logo {
+  height: 40px;
+  width: auto;
+  transition: opacity 0.3s ease;
+}
+
+.nav-logo:hover {
+  opacity: 0.8;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
 }
 
 
@@ -624,17 +640,27 @@ h1{
 }
 
 .gradient-text {
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.gradient-text:hover {
-  background-image: var(--grad-dynamic);
+  background-image: linear-gradient(135deg, #F5F5F5, #A0B6DB, #919BE4, #FFDFCB, #FFCF93, #EED0C7, #E6EAFE, #ECF5FF);
   background-size: 200%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: grad-shift 3s ease infinite;
+}
+
+.about-content b {
+  background-image: linear-gradient(45deg, #4B5563, #A0B6DB, #6B7280, #919BE4, #374151, #4B5563);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: grad-shift 8s ease infinite;
+  font-weight: 700;
+}
+
+.about-content strong {
+  font-weight: 700;
+  color: #374151;
 }
 
 .about-content p {
