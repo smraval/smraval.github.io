@@ -54,7 +54,10 @@
 .project-hero {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(155, 176, 206, 0.2);
 }
 
 .project-hero-image {
@@ -87,7 +90,7 @@
   animation: fadeInUp 0.8s ease-out 0.2s both;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   margin: 0 -2rem;
   width: calc(100% + 4rem);
 }
@@ -97,7 +100,10 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: 2rem;
-  padding: 0 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(155, 176, 206, 0.2);
+  width: 95%;
+  margin: 0 auto;
 }
 
 .project-text-left {
@@ -110,7 +116,7 @@
   gap: 2rem;
   flex-wrap: wrap;
   animation: fadeInUp 0.8s ease-out 0.4s both;
-  padding: 0 2rem;
+  padding: 1rem 2rem 0;
   position: relative;
   justify-content: center;
 }
@@ -118,10 +124,10 @@
 .meta-item {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  min-width: 120px;
-  align-items: center;
-  text-align: center;
+  gap: 0.5rem;
+  min-width: 180px;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .meta-label {
@@ -205,8 +211,225 @@
   transform: translate(2px, -2px);
 }
 
+/* Project Content Styling */
+.project-content {
+  max-width: 1200px;
+  margin: 0;
+  padding: 2rem;
+  text-align: left;
+}
+
+.overview {
+  width: 100%;
+  margin: 0 0 4rem 0;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--gray);
+  text-align: left;
+}
+
+.challenge {
+  margin-bottom: 4rem;
+  width: 95%;
+  margin-left: 0;
+  margin-right: auto;
+  text-align: left;
+}
+
+.challenge h2 {
+  font-size: 1.5rem;
+  color: #5b616c;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.highlight {
+  font-size: 1.4rem;
+  color: #E85A4F;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.context {
+  margin-bottom: 4rem;
+  width: 95%;
+  margin-left: 0;
+  margin-right: auto;
+  text-align: left;
+}
+
+.context h2 {
+  font-size: 1.5rem;
+  color: #5b616c;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.context p {
+  color: var(--gray);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.elements-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 4rem;
+  text-align: left;
+}
+
+.element {
+  background: #FDF6F1;
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: left;
+}
+
+.element h3 {
+  color: #E85A4F;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.element p {
+  color: var(--gray);
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* SpeakEasy Specific Sections */
+.reflections {
+  margin-bottom: 4rem;
+  width: 95%;
+  margin-left: 0;
+  margin-right: auto;
+  text-align: left;
+}
+
+.section-header {
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.section-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #CD3735;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.reflections h2 {
+  font-size: 2rem;
+  color: #076282;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+.takeaways-content {
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+.takeaways-content p {
+  color: var(--gray);
+  line-height: 1.2;
+  font-size: 1.125rem;
+  text-align: left;
+}
+
+.judge-feedback {
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.feedback-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #2274A5;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.feedback-list {
+  list-style: none;
+  padding-left: 0;
+  text-align: left;
+}
+
+.feedback-list li {
+  color: var(--gray);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1.5rem;
+  text-align: left;
+}
+
+.feedback-list li::before {
+  content: "•";
+  color: #CD3735;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.login-transparency {
+  margin-bottom: 4rem;
+  width: 95%;
+  margin-left: 0;
+  margin-right: auto;
+  text-align: left;
+}
+
+.login-transparency h2 {
+  font-size: 1.5rem;
+  color: #076282;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.login-transparency p {
+  color: var(--gray);
+  line-height: 1.6;
+  font-size: 1.125rem;
+  text-align: left;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
+  .project-content {
+    padding: 2rem 1rem;
+  }
+
+  .overview {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+  }
+
+  .highlight {
+    font-size: 1.2rem;
+  }
+
+  .elements-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .element {
+    padding: 1.5rem;
+  }
   .back-arrow {
     left: 20px;
   }
