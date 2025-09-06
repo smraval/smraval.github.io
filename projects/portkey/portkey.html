@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portkey360 – Shalini Raval</title>
+  <link rel="icon" type="image/x-icon" href="../../favicon.ico">
   
   <link rel="stylesheet" href="../../css/styles.css" />
   <link rel="stylesheet" href="../../css/home.css" />
@@ -308,6 +309,14 @@
       text-align: left;
     }
     
+    /* Ensure Portkey hero image is properly sized */
+    .project-hero-image img[src*="portkey-mockup"] {
+      width: 100% !important;
+      height: auto !important;
+      object-fit: contain !important;
+      max-height: 600px !important;
+    }
+    
     /* Style for content images */
     .project-content img {
       width: 100%;
@@ -360,7 +369,7 @@
   <main class="project-page">
     <header class="project-hero">
       <figure class="project-hero-image">
-        <img src="assets/portkey-mockup.svg" alt="Portkey360 platform interface" />
+        <img src="assets/portkey-mockup.png" alt="Portkey360 platform interface" />
       </figure>
       
       <div class="project-header-content">

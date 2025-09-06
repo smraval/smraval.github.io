@@ -78,6 +78,7 @@
 
 /* Make images bigger for specific pages */
 .project-hero-image img[src*="portkey-image"],
+.project-hero-image img[src*="portkey-mockup"],
 .project-hero-image img[src*="speak-easy-hub"] {
   width: 100%;
   height: auto;
@@ -434,6 +435,11 @@
     left: 20px;
   }
   
+  /* Add space between back arrow and hero image */
+  .project-hero {
+    margin-top: 2rem;
+  }
+  
   .project-text-content {
     flex-direction: column;
     gap: 1rem;
@@ -447,9 +453,10 @@
   .prototype-button {
     align-self: flex-start;
     margin-top: 1rem;
+    margin-bottom: 2rem;
   }
   
-  .project-hero-image img[src*="portkey"],
+  .project-hero-image img[src*="portkey-mockup"],
   .project-hero-image img[src*="speak-easy"] {
     width: 100%;
     margin-left: 0;
