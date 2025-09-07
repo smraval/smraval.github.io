@@ -379,6 +379,58 @@
       font-weight: 700;
     }
     
+    /* Presenting Pearl section */
+    .presenting-section {
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+    
+    .presenting-section h3 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #27A4C5 !important;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+    
+    /* Blue prototype button */
+    .blue-prototype-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 12px 24px;
+      background-color: #27A4C5;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.875rem;
+      letter-spacing: 0.025em;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-top: 2rem;
+      box-shadow: 0 4px 12px rgba(39, 164, 197, 0.3);
+    }
+    
+    .blue-prototype-button:hover {
+      background-color: #1E8BA8;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(39, 164, 197, 0.4);
+      color: white;
+    }
+    
+    .blue-prototype-button svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s ease;
+    }
+    
+    .blue-prototype-button:hover svg {
+      transform: translate(2px, -2px);
+    }
+
     /* Responsive adjustments */
     @media (max-width: 768px) {
       .competitor-grid {
@@ -579,7 +631,17 @@ User Researcher</span>
         <p>Our final Pearl prototype was evaluated at the Jumpstart Spring Designathon, earning perfect scores in user research, experience, interface, and creativity. The judges recognized the strength of our concept, execution, and focus on user needs earning us First Place!</p>
         <img src="assets/rubric.avif" alt="Judges rubric">
        </div>  
+      
+       <div class="presenting-section">
+        <a href="https://www.figma.com/proto/ZE1QLRx3eS6Epapmn3MNOa/Pearl.?page-id=0%3A1&node-id=161-1771&p=f&viewport=320%2C340%2C0.02&t=XX1haTjXf6AWH6bl-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=33%3A121&show-proto-sidebar=1" class="blue-prototype-button" target="_blank">
+          Check out our prototype here
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+          </svg>
+        </a>
+      </div>
     </section>
+
    
   </main>
 
