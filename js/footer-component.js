@@ -57,10 +57,12 @@ class FooterComponent extends HTMLElement {
 
         .contact-links a:hover {
           color: var(--brand-blue);
+          transform: translateY(-2px);
         }
 
         .contact-links a:hover svg {
           fill: var(--brand-blue);
+          transform: translateY(-2px);
         }
 
         .contact-links svg,

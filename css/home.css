@@ -254,10 +254,12 @@ h1{
 }
 .social a:hover{
   color: var(--brand-blue);
+  transform: translateY(-2px);
 }
 
 .social a:hover svg {
   fill: var(--brand-blue);
+  transform: translateY(-2px);
 }
 .social svg{
   width:28px;
@@ -690,10 +692,12 @@ h1{
 
 .contact-links a:hover {
   color: var(--brand-blue);
+  transform: translateY(-2px);
 }
 
 .contact-links a:hover svg {
   fill: var(--brand-blue);
+  transform: translateY(-2px);
 }
 
 .contact-links svg,
