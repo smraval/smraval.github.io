@@ -4,7 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portkey360 – Shalini Raval</title>
-  <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+  <!-- Dynamic favicon that changes with color scheme -->
+  <link rel="icon" type="image/x-icon" href="../../blackfavicon.ico" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/x-icon" href="../../favicon.ico" media="(prefers-color-scheme: dark)">
+  <link rel="shortcut icon" type="image/x-icon" href="../../blackfavicon.ico" media="(prefers-color-scheme: light)">
+  <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" media="(prefers-color-scheme: dark)">
+  <link rel="apple-touch-icon" href="../../blackfavicon.ico">
   
   <link rel="stylesheet" href="../../css/styles.css" />
   <link rel="stylesheet" href="../../css/home.css" />
@@ -12,6 +17,27 @@
   
   <style>
     /* Portkey specific styling with earthy palette */
+    
+    /* Section labels styling */
+    .section-label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #8B8680;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: block;
+      margin-bottom: 0.25rem;
+      text-align: left;
+    }
+    
+    /* Green gradient text styling */
+    .green-gradient {
+      background: linear-gradient(135deg, #79826B, #9CAF88);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
     
     /* Project content sections */
     .project-overview {
@@ -47,10 +73,10 @@
     }
     
     .generative-section h2 {
-      font-size: 1.5rem;
+      font-size: 2rem;
       color: #79826B;
       margin-bottom: 1rem;
-      font-weight: 600;
+      font-weight: 700;
       text-align: left;
     }
     
@@ -109,10 +135,10 @@
     }
     
     .infrastructure-section h2 {
-      font-size: 1.5rem;
+      font-size: 2rem;
       color: #79826B;
       margin-bottom: 1rem;
-      font-weight: 600;
+      font-weight: 700;
       text-align: left;
     }
     
@@ -187,10 +213,10 @@
     }
     
     .challenges-section h2 {
-      font-size: 1.5rem;
+      font-size: 2rem;
       color: #79826B;
       margin-bottom: 1rem;
-      font-weight: 600;
+      font-weight: 700;
       text-align: left;
     }
     
@@ -265,10 +291,10 @@
     }
     
     .future-section h2 {
-      font-size: 1.5rem;
+      font-size: 2rem;
       color: #79826B;
       margin-bottom: 1rem;
-      font-weight: 600;
+      font-weight: 700;
       text-align: left;
     }
     
@@ -414,12 +440,14 @@ PyTorch</span>
 
     <section class="project-content">
       <div class="project-overview">
-        <h2>Project Overview</h2>
-        <p>Portkey 360° – your imagination, brought to life in 360°. The project generates immersive panoramic environments from text descriptions, which can be explored directly in the browser.</p>
+        <span class="section-label">OVERVIEW</span>
+        <!-- <h2>Project Overview</h2> -->
+        <p>Portkey 360°, your imagination, brought to life in 360°. The project generates immersive panoramic environments from text descriptions, which can be explored directly in the browser.</p>
         <p>It combines a Next.js + React Three Fiber frontend with a FastAPI backend serving Stable Diffusion v1.5 through Hugging Face Diffusers. The architecture demonstrates how generative AI can power interactive 3D experiences on the web.</p>
       </div>
 
       <div class="generative-section">
+        <span class="section-label">FEATURES</span>
         <h2>Generative Panoramas in Real Time</h2>
         <p>Portkey 360° allows users to describe any scene in words and transform it into a 360° panorama within seconds. These outputs are rendered with React Three Fiber and a WebGL viewer, enabling intuitive navigation inside the generated scene.</p>
         
@@ -434,6 +462,7 @@ PyTorch</span>
       </div>
 
       <div class="infrastructure-section">
+        <span class="section-label">TECHNOLOGY</span>
         <h2>Inference Infrastructure</h2>
         <p>The backend, built with FastAPI, handles text-to-image inference requests and integrates directly with PyTorch + Diffusers. Instead of containerization, the system is designed for local development and GPU execution, with manual environment setup for reproducibility.</p>
         
@@ -463,11 +492,11 @@ PyTorch</span>
 
 
       <div class="challenges-section">
-        <h2>Challenges and Learning Outcomes</h2>
-        <p>A key challenge was training LoRA weights on panoramic datasets. The generated outputs often contained distortions when mapped to equirectangular projections, and generalization proved difficult. I ultimately chose to focus on base Stable Diffusion with optimized prompt engineering, which produced more consistent panoramas with fewer artifacts.</p>
-        
+        <span class="section-label">CHALLENGES</span>
+        <h2>Navigating Panorama Distortions</h2>
+        <p>One challenge was adapting Stable Diffusion to panoramic images. Training custom LoRA weights introduced distortions when converting to 360° projections, and the model struggled to generalize. I ended up relying on the base model with careful prompt engineering, which gave more reliable panoramas with fewer artifacts.</p>        
         <div class="learning-highlight">
-          <p>This decision taught me to weigh fine-tuning costs vs. practical reliability—a valuable lesson in building generative AI systems.</p>
+          <p>This decision taught me to weigh fine-tuning costs vs. practical reliability, a valuable lesson in building generative AI systems.</p>
         </div>
         
         <div class="skills-section">
@@ -482,8 +511,9 @@ PyTorch</span>
       </div>
 
       <div class="future-section">
-        <h2>Future Directions</h2>
-        <p>The next stage of Portkey 360° is to expand beyond static panoramas toward immersive and interactive experiences:</p>
+        <span class="section-label">FUTURE</span>
+        <h2>Immersive Worldbuilding</h2>
+        <p>The next stage of Portkey 360° is to expand beyond static panoramas toward <strong class="green-gradient">immersive</strong> and <strong class="green-gradient">interactive experiences</strong>:</p>
         
         <ul class="future-list">
           <li>VR headset compatibility for fully embodied exploration.</li>
@@ -500,7 +530,7 @@ PyTorch</span>
   </main>
 
   <footer class="contact">
-    <p>feel free to reach out</p>
+    <p>feel free to reach out!</p>
     <div class="contact-links">
       <a href="mailto:shalinimraval@gmail.com" aria-label="Email">
         <svg viewBox="0 0 24 24">
@@ -531,7 +561,7 @@ PyTorch</span>
         </svg>
       </a>
     </div>
-    <div class="signature">·‧̍̊𓆞 °.designed and developed by shalini ˙· 𓆝.°</div>
+    <div class="signature">designed and developed by shalini ˙· 𓆝.°</div>
   </footer>
 </body>
 </html>
