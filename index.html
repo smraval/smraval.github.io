@@ -19,6 +19,7 @@
 <body class="home-page">
 
     <nav>
+      <div class="nav-container">
         <a href="index.html">
             <img src="assets/images/logo.png" alt="Logo" class="nav-logo">
         </a>
@@ -27,6 +28,7 @@
             <a href="about.html">about</a>
             <a class="button" href="https://drive.google.com/file/d/1c_TvegHAvITjIXi9TJrZfV8WXVbkZO8o/preview" target="_blank">resume</a>
         </div>
+      </div>
     </nav>
 
     <main>
@@ -212,16 +214,18 @@
     <footer-component></footer-component>
 
     <script>
-        // Add scroll detection for gradient fade
+        // Add scroll detection for gradient fade and navigation glass effect
         let scrollTimeout;
         
         function handleScroll() {
-            const scrolled = window.scrollY > 50;
+            const scrolled = window.scrollY > 0; // Trigger on any scroll
             
             if (scrolled) {
                 document.body.classList.add('scrolled');
+                document.querySelector('nav').classList.add('scrolled');
             } else {
                 document.body.classList.remove('scrolled');
+                document.querySelector('nav').classList.remove('scrolled');
             }
         }
         
