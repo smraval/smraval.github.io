@@ -6,6 +6,10 @@ body{
   flex-direction:column;
   background:#fff;
   font-family:var(--font-body);
+}
+
+/* Add padding only for home page */
+body.home-page {
   padding-top: 88px; /* Space for fixed nav */
 }
 
@@ -49,11 +53,16 @@ nav{
   width:100%;
   padding:24px 120px;
   font-size:1rem;
+  position: relative;
+  z-index: 3;
+  background: transparent;
+}
+
+/* Fixed positioning only for home page */
+body.home-page nav {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 3;
-  background: transparent;
   transition: opacity 0.2s ease-out;
   opacity: 1;
 }
