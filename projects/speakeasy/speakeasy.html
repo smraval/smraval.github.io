@@ -54,6 +54,23 @@
       text-align: left;
       margin-bottom: 1rem;
     }
+
+    /* Gray problem box similar to Pearl's selected adaptation */
+    .problem-box {
+      text-align: left;
+      padding: 1.5rem;
+      border-radius: 12px;
+      background: #E9E9E9;
+      border: 2px solid #D9D9D9;
+      margin: 1.5rem 0;
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
+    }
+    .problem-box .section-label { color: #CD3735; margin-bottom: 0.5rem; }
+    .problem-box h2 { color: #076282; font-size: 1.75rem; margin: 0 0 0.75rem 0; font-weight: 700; }
+    .problem-box p { color: var(--gray); margin-bottom: 0.75rem; }
+    .problem-box ol { margin: 0.5rem 0 0.75rem 1.25rem; }
+    .problem-box li { margin-bottom: 0.5rem; }
     
     .image-placeholder {
       background-color: #f5f5f5;
@@ -137,7 +154,7 @@
     
     /* Style the reflections section headers */
     .reflections {
-      margin-bottom: 2.5rem !important;
+      margin-bottom: 0.5rem !important;
     }
     
     .reflections .section-label {
@@ -171,6 +188,32 @@
     /* Style the login transparency section */
     .login-transparency {
       margin-bottom: 2.5rem !important;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      overflow: visible;
+    }
+    .login-transparency .login-text {
+      flex: none !important;
+      max-width: 100% !important;
+      width: 100% !important;
+      padding-top: 0;
+    }
+    .login-transparency img {
+      flex: none !important;
+      max-width: 45% !important;
+      width: 45% !important;
+      margin: 0;
+      box-shadow: none !important;
+      transform: none !important;
+      transform-origin: initial;
+      align-self: flex-end;
+     
+    }
+    @media (max-width: 768px) {
+      .login-transparency { flex-direction: column; }
+      .login-transparency img { max-width: 100%; }
     }
     
     .login-transparency h2 {
@@ -216,12 +259,23 @@
       margin-right: auto;
       text-align: left;
     }
-    
     .goals-section h2 {
       font-size: 1.5rem;
       color: #076282 !important;
-      margin-bottom: 1.5rem;
+      margin-bottom: 0.25rem; 
       text-align: left;
+    }
+    /* Reduce padding in goal cards to remove excess whitespace */
+    .goals-section .element {
+      padding: 1rem 1.25rem !important;
+    }
+    .goals-section .elements-grid {
+      margin-top: 0.75rem;
+      row-gap: 1rem;
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
     }
     
     /* Iterations section */
@@ -258,7 +312,7 @@
     
     /* Login transparency images */
     .login-transparency img {
-      max-width: 100%;
+      max-width: 40%;
       height: auto;
       display: block;
       margin: 2rem auto 0;
@@ -384,6 +438,7 @@
       </div>
 
       <div class="context">
+        <span class="section-label">GOALS</span>
         <h2>Context</h2>
         <p><b>Over 70 million people stutter globally, yet most speech technologies fail to serve them, because they're trained only on fluent speech.</b></p>
         <p>Current speech technologies, such as automated phone menus or computer-generated captions, often fail to work well for people who stutter due to training on fluent speech. To make these speech technologies more responsive and accessible for people who stutter, it is important to collect more diverse stuttered speech data to improve these technologies.</p>
@@ -397,7 +452,7 @@
       </div>
             
       <div class="goals-section">
-        <h2>Goals:</h2>
+        <h2>Pillars</h2>
         <div class="elements-grid">
         <div class="element">
           <h3>Intentionality</h3>
@@ -423,22 +478,24 @@
     </section>
 
     <section class =iterations>
-      <h2>Iterations</h2>
+      <span class="section-label">ITERATIONS</span>
       <p>Our UI brought the goals to life: intentional design made practice engaging and purposeful, accessibility ensured support for users who stutter, readability kept the interface clean yet vibrant, and inclusivity offered options for all ages and needs. The result was a polished design that embodied our mission of providing options to accommodate different preferences and needs.</p>
       <img src="assets/iterations.avif" alt="SpeakEasy iterations" />
     </section>
   
 
     <section class="login-transparency">
-      <h2>Login Screen with Transparency</h2>
-      <p>We ensured users knew precisely where their data was going and how their voice recordings would be used. Based on interviews, transparency emerged as the key expectation, so we treated it as a non-negotiable top priority.</p>
-      <img src="assets/transparency.svg" alt="SpeakEasy login screen with transparency" />
+      <div class="login-text">
+        <h2>Transparency and User Consent</h2>
+        <p>We ensured users knew precisely where their data was going and how their voice recordings would be used. Based on interviews, transparency emerged as the key expectation, so we treated it as a non-negotiable top priority.</p>
+      </div>
+      <img src="assets/transparency.png" alt="SpeakEasy login screen with transparency" />
     </section>
 
     <section class="reflections">
       <div class="section-header">
         <span class="section-label">REFLECTIONS</span>
-        <h2>Key Takeaways</h2>
+        <h2>Final Thoughts</h2>
       </div>
       
       <div class="takeaways-content">
@@ -446,7 +503,7 @@
       </div>
 
       <div class="judge-feedback">
-        <span class="feedback-label">JUDGE FEEDBACK - HOW WE'LL PUSH IT FURTHER</span>
+        <span class="feedback-label">FUTURE CONSIDERATIONS</span>
         <ul class="feedback-list">
           <li>Prioritize fuller speech samples (phrases and sentences, not just single words) to help the models learn faster. Add game modes that prompt longer responses (mini-stories, sentence chains, guided prompts).</li>
           <li>Update scoring to reward clarity and complexity, not just speed or accuracy.</li>
@@ -455,8 +512,8 @@
     </section>
 
     <div class="presenting-section">
-      <h3>Presenting SpeakEasy!</h3>
-      <img src="assets/final.svg" alt="SpeakEasy final design" />
+      <!-- <h3>Presenting our final design!</h3>
+      <img src="assets/final.svg" alt="SpeakEasy final design" /> -->
       <a href="https://www.figma.com/proto/XvhbE3Adqd3c6aluez2vnO/Speakeasy?page-id=0%3A1&node-id=946-42173&p=f&viewport=946%2C332%2C0.07&t=x5DmdrIaXjlQyweG-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=946%3A42173&show-proto-sidebar=1" class="red-prototype-button" target="_blank">
         Check out our prototype here
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

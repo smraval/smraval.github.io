@@ -325,12 +325,13 @@ h1{
 
 .role:hover{
   background-image: var(--grad-dynamic);
-  background-size: 300% 300%;         
+  background-size: 400% 400%;         
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  animation: grad-shift 2.5s linear infinite;
+  animation: grad-shift 6s linear infinite;
+  animation-delay: 2s;
 }
 
 
@@ -389,7 +390,7 @@ h1{
 }
 @keyframes grad-shift{
   0%   { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
+  100% { background-position: 75% 50%; }
 }
 @keyframes gradientShift{
   0% { background-position: 0% 30%; }
@@ -459,12 +460,13 @@ h1{
 
 .project-title:hover{
   background-image: var(--grad-dynamic);
-  background-size: 300% 300%;         
+  background-size: 400% 400%;         
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  animation: grad-shift 2.5s linear infinite;
+  animation: grad-shift 8s linear infinite;
+  animation-delay: 3s;
 }
 
 .project-divider{
@@ -931,14 +933,20 @@ h1{
 .about-container {
   max-width: 1400px;
   display: grid;
-  grid-template-columns: 350px 1fr;
-  gap: 4rem;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
   align-items: start;
 }
 
 .about-image {
+  grid-column: 1 / 5;
   position: relative;
   overflow: visible;
+}
+
+.about-content {
+  grid-column: 5 / 13;
+  max-width: 70ch;
 }
 
 .about-image img {
@@ -952,27 +960,27 @@ h1{
   font-weight: 700;
   font-size: clamp(2rem, 4vw, 3rem);
   color: #374151;
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-4);
   line-height: 1.1;
   text-align: left;
 }
 
 .gradient-text {
-  background-image: linear-gradient(135deg, #F5F5F5, #A0B6DB, #919BE4, #FFDFCB, #FFCF93, #EED0C7, #E6EAFE, #ECF5FF);
-  background-size: 200%;
+  background-image: linear-gradient(135deg, #F5F5F5, #A0B6DB, #919BE4, #FFDFCB, #FFCF93, #EED0C7, #E6EAFE, #ECF5FF, #F5F5F5);
+  background-size: 400%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: grad-shift 3s ease infinite;
+  animation: grad-shift 5s linear infinite;
+  animation-delay: 0s;
 }
 
 .about-content b {
-  background-image: linear-gradient(45deg, #4B5563, #A0B6DB, #6B7280, #919BE4, #374151, #4B5563);
-  background-size: 200%;
+  background-image: linear-gradient(45deg, #919BE4, #A0B6DB, #919BE4, #A0B6DB, #919BE4, #A0B6DB);
+  background-size: 100%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: grad-shift 3s ease infinite;
   font-weight: 700;
 }
 
@@ -984,14 +992,14 @@ h1{
 .about-content p {
   font-family: var(--font-body);
   font-size: 1.125rem;
-  line-height: 1.5;
+  line-height: 1.6;
   color: #6B7280;
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-4);
   text-align: left;
 }
 
 .about-content p:last-child {
-  margin-bottom: 0;
+  margin-bottom: var(--space-8);
 }
 
 
@@ -1002,18 +1010,24 @@ h1{
   
   .about-container {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: var(--space-6);
     text-align: center;
   }
   
   .about-image {
+    grid-column: 1;
     max-width: 300px;
     margin: 0 auto;
   }
   
+  .about-content {
+    grid-column: 1;
+    max-width: none;
+  }
+  
   .about-content h1 {
     font-size: clamp(1.75rem, 6vw, 2.5rem);
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--space-4);
   }
   
   .about-content p {

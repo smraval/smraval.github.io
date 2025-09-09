@@ -90,6 +90,38 @@
     .project-overview p {
       font-size: 1.125rem;
     }
+
+    /* Overview layout with fish image */
+    .overview-layout {
+      position: relative;
+      display: block;
+    }
+    
+    .overview-text {
+      padding-right: 40px; /* space for smaller fish */
+    }
+    
+    .overview-figure {
+      margin: 0;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-55%);
+      pointer-events: none;
+      background: transparent;
+    }
+    
+    .overview-figure img {
+      height: 42px;
+      width: auto;
+      background: transparent !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      padding: 0;
+      margin: 0;
+      object-fit: contain;
+      image-rendering: -webkit-optimize-contrast;
+    }
     
     /* Special elements */
     .highlight-stat {
@@ -146,7 +178,7 @@
       position: static;
       padding-left: 2px;
       text-align: left;
-      margin-left: 80px;
+      /* margin-left: 80px; */
     }
     
     .problem-list li::before { 
@@ -224,11 +256,11 @@
     }
     
     .comparison-column h4:first-child {
-      color: #FB8501;
+      color: #27A4C5;
     }
     
     .comparison-column h4:last-child {
-      color: #FFB703;
+      color: #023047;
     }
     
     .comparison-column ul {
@@ -247,14 +279,14 @@
     
     .comparison-column li::before {
       content: "•";
-      color: #FB8501;
+      color: #023047;
       font-weight: bold;
       position: absolute;
       left: 0;
     }
     
     .comparison-column:last-child li::before {
-      color: #FFB703;
+      color: #27A4C5;
     }
     
     /* Adaptations comparison */
@@ -276,6 +308,29 @@
       background: #e3f2fd;
       border: 2px solid #27A4C5;
     }
+    
+    /* Problem box styled like Adaptation 3 */
+    .problem-box {
+      text-align: left;
+      padding: 1.5rem;
+      border-radius: 12px;
+      background: #e3f2fd;
+      border: 2px solid #27A4C5;
+      margin: 1.5rem 0;
+      /* Align inner text with surrounding content's left edge */
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
+    }
+    .problem-box h2 {
+      font-size: 1.75rem;
+      margin: 0 0 0.75rem 0;
+      color: #27A4C5;
+      font-weight: 700;
+    }
+    .problem-box .section-label { color: #023047; margin-bottom: 0.5rem; }
+    .problem-box p { color: #2D3748; margin-bottom: 0.75rem; }
+    .problem-box ol { margin: 0.5rem 0 0.75rem 1.25rem; }
+    .problem-box li { margin-bottom: 0.5rem; }
     
     .adaptation-column h4 {
       font-size: 1.125rem;
@@ -356,6 +411,29 @@
       border-radius: 8px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       display: block;
+      background: transparent;
+    }
+    /* Override generic image sizing for the small fish icon */
+    .project-content .overview-figure img {
+      width: auto !important;
+      max-width: none !important;
+      height: 150px !important;
+      display: inline-block;
+      box-shadow: none !important;
+      image-rendering: -webkit-optimize-contrast;
+    }
+    .overview-text {
+      padding-right: 128px; /* space for fish */
+      margin-right: 0;
+    }
+    
+    /* Make selected images span the same width as text */
+    .project-content img.full-width-media {
+      max-width: none;
+      width: 100%;
+      margin-left: 0;
+      margin-right: auto;
+      background: transparent;
     }
     
     /* Info architecture diagram specific styling */
@@ -434,6 +512,95 @@
       transform: translate(2px, -2px);
     }
 
+    /* Design categories layout - matching screenshot structure */
+    .design-categories {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .design-category {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+    
+    .design-category:hover {
+      border-color: #27A4C5;
+      box-shadow: 0 4px 16px rgba(39, 164, 197, 0.12);
+      transform: translateY(-1px);
+    }
+    
+    .category-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .category-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    
+    .design-category h3 {
+      font-size: 1.25rem;
+      color: #27A4C5;
+      margin: 0;
+      font-weight: 600;
+    }
+    
+    .category-badge {
+      background: #e3f2fd;
+      color: #27A4C5;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .text-content p {
+      color: #2D3748;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    
+    .video-container {
+      text-align: center;
+      display: inline-block;
+      background: transparent;
+    }
+    
+    /* Video styling */
+    .design-video {
+      width: 100%;
+      max-width: 260px;
+      height: auto;
+      border-radius: 45px;
+      background: transparent;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .design-video::-webkit-media-controls-panel {
+      background-color: rgba(39, 164, 197, 0.1);
+    }
+    
+    .design-video::-webkit-media-controls-play-button,
+    .design-video::-webkit-media-controls-volume-slider {
+      background-color: #27A4C5;
+    }
+
     /* Responsive adjustments */
     @media (max-width: 768px) {
       .competitor-grid {
@@ -454,6 +621,34 @@
       .adaptations-comparison {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+      }
+      
+      .overview-layout { position: static; }
+      .overview-text { padding-right: 0; margin-right: 0; }
+      .overview-figure { position: static; transform: none; margin-top: 0.5rem; }
+      .overview-figure img { height: 60px !important; }
+
+      .design-categories {
+        gap: 1.5rem;
+      }
+      
+      .design-category {
+        padding: 1.25rem;
+      }
+      
+      .category-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .category-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+      
+      .design-video {
+        max-width: 100%;
       }
     }
   </style>
@@ -523,29 +718,38 @@ User Researcher</span>
 
     <section class="project-content">
       <div class="project-overview">
-        <p>Pearl is a Pomodoro timer app designed to <strong class="blue-gradient">help users build mindful digital habits</strong> through gentle encouragement and positive reinforcement. Unlike traditional productivity apps that rely on guilt-based nudges, Pearl creates an <strong class="blue-gradient">engaging underwater-themed experience</strong> that makes focus feel enjoyable.</p>
+        <div class="overview-layout">
+          <div class="overview-text">
+            <p>Pearl is a Pomodoro timer app designed to <strong class="blue-gradient">help users build mindful digital habits</strong> through gentle encouragement and positive reinforcement. Unlike traditional productivity apps that rely on guilt-based nudges, Pearl creates an <strong class="blue-gradient">engaging underwater-themed experience</strong> that makes focus feel enjoyable.</p>
+          </div>
+          <figure class="overview-figure" aria-hidden="true">
+            <img src="assets/pearl-fish.png" alt="" />
+          </figure>
+        </div>
       </div>
 
       <div class="context-section">
         <span class="section-label">CONTEXT</span>
-        <p>Self-guided mental-health and wellbeing apps relying on guilt-based nudges see median retention plummet from <span class="highlight-stat">3.9%</span> at <span class="highlight-stat">15 days</span> to just <span class="highlight-stat">3.3%</span> by <span class="highlight-stat">day 30</span>.</p>
+        <!-- <p>Self-guided mental-health and wellbeing apps relying on guilt-based nudges see median retention plummet from <span class="highlight-stat">3.9%</span> at <span class="highlight-stat">15 days</span> to just <span class="highlight-stat">3.3%</span> by <span class="highlight-stat">day 30</span>.</p> -->
         <p>Amid constant notifications, doomscrolling, and digital fatigue, people are craving healthier ways to use their screens. Apple's Screen Time and Google's Digital Wellbeing offer options, but they often feel passive, confusing, or too easy to ignore. What's missing is a more engaging, personalized approach to truly shift digital habits.</p>
       </div>
 
       <div class="challenge-section">
-        <span class="section-label">PROBLEM</span>
-        <h2>Challenge</h2>
-        <p>Design a mobile app that helps users build mindful digital habits in fun and engaging ways. The app should focus on encouraging healthy screen usage without relying on guilt or restriction. You may incorporate gamification, journaling, social accountability, or mindfulness elements.</p>
-        <!-- <h3 class ="problem">Study Buddy apps often undermine motivation and breed toxicity.</h3> -->
-        <p>Despite available solutions, users often:</p>
-        <ol class="problem-list">
-          <li>Feel guilty when using screen-time limiters</li>
-          <li>Ignore passive notifications or dashboards</li>
-          <li>Lack emotional motivation to shift their habits</li>
-        </ol>
-        <p class="question-lead">Which brings us to ask...</p>
+        <div class="problem-box">
+          <span class="section-label">PROBLEM</span>
+          <p>Design a mobile app that helps users build mindful digital habits in fun and engaging ways. The app should focus on encouraging healthy screen usage without relying on guilt or restriction. You may incorporate gamification, journaling, social accountability, or mindfulness elements.</p>
+          <!-- <h3 class ="problem">Study Buddy apps often undermine motivation and breed toxicity.</h3> -->
+          <p>Despite available solutions, users often:</p>
+          <ol class="problem-list">
+            <li>Feel guilty when using screen-time limiters</li>
+            <li>Ignore passive notifications or dashboards</li>
+            <li>Lack emotional motivation to shift their habits</li>
+          </ol>
+          <!-- <p class="question-lead">Which brings us to ask...</p> -->
+        </div>
       </div>
       <div class="how-might-we">
+        <span class="section-label">CHALLENGE</span>
         <p>How might we design a mobile app that promotes mindful digital habits in fun and engaging ways, without guilt or restriction?</p>
       </div>
 
@@ -581,7 +785,7 @@ User Researcher</span>
       <div class="iterations-section">
         <span class="section-label">ITERATIONS</span>
         <p>Our aim was to create a streamlined, all-in-one solution that cut down on excessive screen time, staying true to our mission of reducing digital distractions. We focused on a clean, welcoming interface and, after several design iterations, developed these three polished concepts.</p>
-        <img src="assets/pearl-iterations.avif" alt="Iteration doodles">
+        <img src="assets/pearl-iterations.avif" alt="Iteration doodles" class="full-width-media">
         
         <div class="adaptations-comparison">
           <div class="adaptation-column">
@@ -610,31 +814,77 @@ User Researcher</span>
         </div>
 
         <p>We chose <b>Adaptation 3</b>, simplifying the homepage by removing excess boxes and organizing everything into folders for a cleaner, more inviting look. This version highlights four core categories—Pomodoro, Productivity, Progress, and Treasure Chest. Within each, users can adjust settings like timer length or daily tasks, offering just enough customization to stay engaged without losing focus. This process helped us refine the preliminary information architecture that will guide our app’s design.</p>
-        <img src ="assets/info-architec.svg" alt = "info architecture diagram">
+        <img src ="assets/info-architec.svg" alt = "info architecture diagram" class="full-width-media">
       </div>
 
       <div class="final-designs-section">
         <span class="section-label">FINAL DESIGNS</span>
-        <h3>Pomodoro Timer</h3>
-        <p>The <b>Pomodoro</b> timer guides users through setting preferences, focusing during work and breaks, and finally viewing a summary of their progress and rewards.</p>
-        <img src="assets/timer.png" alt="Pearl timer app screens" />
+        <h2>Meet Pearl!</h2>
         
-        <h3>Productivity and Progress</h3>
-        <p>The <b>Productivity</b> flow gives users a clear snapshot of their screen habits. They can tag apps as productive or distracting, then review visualizations of screen time, pickups, and Pomodoro sessions to better understand how their time is being used.</p>
-        <p>The <b>Progress</b> screen keeps users motivated by tracking daily Pomodoro streaks, celebrating usage milestones, and showing long-term consistency through a calendar heatmap.</p>
-        
-        <img src="assets/productivity.svg" alt="Pearl productivity screens" />
+        <div class="design-categories">
+          <div class="design-category">
+            <div class="category-content">
+              <div class="video-container">
+                <video class="design-video" muted loop>
+                  <source src="assets/timer.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="text-content">
+                <div class="category-header">
+                  <h3>Pomodoro Timer</h3>
+                  <span class="category-badge">Core Feature</span>
+                </div>
+                <p>The <b>Pomodoro</b> timer guides users through setting preferences, focusing during work and breaks, and finally viewing a summary of their progress and rewards.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="design-category">
+            <div class="category-content">
+              <div class="video-container">
+                <video class="design-video" muted loop>
+                  <source src="assets/productivity.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="text-content">
+                <div class="category-header">
+                  <h3>Productivity</h3>
+                  <span class="category-badge">Analytics</span>
+                </div>
+                <p>The <b>Productivity</b> flow gives users a clear snapshot of their screen habits. They can tag apps as productive or distracting, then review visualizations of screen time, pickups, and Pomodoro sessions to better understand how their time is being used.</p>
+              </div>
+            </div>
+          </div>
 
-        <h3>Treasure Chest</h3>
-        <p><b>The Treasure Chest</b> feature promotes mindful breaks during Pomodoro sessions by suggesting creative daily tasks. Completing them earns shells, rewarding users with playful progress and surprises to unlock.</p>
-        <img src="assets/treasure-chest.png" alt="Treasure chest flow">
+          <div class="design-category">
+            <div class="category-content">
+              <div class="video-container">
+                <video class="design-video" muted loop>
+                  <source src="assets/treasure-chest.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="text-content">
+                <div class="category-header">
+                  <h3>Treasure Chest and Progress</h3>
+                  <span class="category-badge">Gamification</span>
+                </div>
+                <p><b>The Treasure Chest</b> feature promotes mindful breaks during Pomodoro sessions by suggesting creative daily tasks. Completing them earns shells, rewarding users with playful progress and surprises to unlock.</p>
+                <p>The <b>Progress</b> screen keeps users motivated by tracking daily Pomodoro streaks, celebrating usage milestones, and showing long-term consistency through a calendar heatmap.</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="takeaways-section">
         <span class="section-label">REFLECTIONS</span>
-        <h2>Key Takeaways</h2>
+        <!-- <h2>Key Takeaways</h2> -->
         <p>Our final Pearl prototype was evaluated at the Jumpstart Spring Designathon, earning perfect scores in user research, experience, interface, and creativity. The judges recognized the strength of our concept, execution, and focus on user needs earning us First Place!</p>
-        <img src="assets/rubric.avif" alt="Judges rubric">
+        <img src="assets/rubric.avif" alt="Judges rubric" class="full-width-media">
        </div>  
       
        <div class="presenting-section">
@@ -647,10 +897,40 @@ User Researcher</span>
       </div>
     </section>
 
+
    
   </main>
 
 
   <footer-component></footer-component>
+
+  <script>
+    // Autoplay videos when they come into viewport
+    function setupVideoAutoplay() {
+      const videos = document.querySelectorAll('.design-video');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            video.play().catch(e => {
+              console.log('Autoplay prevented:', e);
+            });
+          } else {
+            video.pause();
+          }
+        });
+      }, {
+        threshold: 0.5 // Play when 50% of video is visible
+      });
+      
+      videos.forEach(video => {
+        observer.observe(video);
+      });
+    }
+    
+    // Initialize when page loads
+    document.addEventListener('DOMContentLoaded', setupVideoAutoplay);
+  </script>
 </body>
 </html> 

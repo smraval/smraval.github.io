@@ -22,9 +22,24 @@
     #FFCF93  50%,
     #EED0C7  62.5%,
     #E6EAFE  75%,
-    #ECF5FF 100%
+    #ECF5FF 100%,
+    #F5F5F5 100%
   );
 
+  /* Design tokens */
+  --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --radius-2xl: 32px;
+  
+  /* 8pt spacing scale */
+  --space-1: 0.5rem;   /* 8px */
+  --space-2: 1rem;     /* 16px */
+  --space-3: 1.5rem;   /* 24px */
+  --space-4: 2rem;     /* 32px */
+  --space-5: 2.5rem;   /* 40px */
+  --space-6: 3rem;     /* 48px */
+  --space-8: 4rem;     /* 64px */
+  --space-10: 5rem;    /* 80px */
+  --space-12: 6rem;    /* 96px */
 
   --font-body:    'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI",
                   Roboto, Helvetica, Arial, sans-serif;
