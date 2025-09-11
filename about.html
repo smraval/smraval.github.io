@@ -4,7 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ABOUT – SHALINI RAVAL</title>
-  <!-- Dynamic favicon that changes with color scheme -->
   <link rel="icon" type="image/x-icon" href="blackfavicon.ico" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/x-icon" href="favicon.ico" media="(prefers-color-scheme: dark)">
   <link rel="shortcut icon" type="image/x-icon" href="blackfavicon.ico" media="(prefers-color-scheme: light)">
@@ -110,8 +109,7 @@
       overflow:hidden;
       transition: all .4s ease, width .4s ease, border-radius .4s ease, background .4s ease, border .4s ease, box-shadow .4s ease;
       cursor:pointer;
-      /* Ensure all expanders are in the same stacking context */
-      z-index: 1; /* baseline */
+      z-index: 1; 
     }
 
     /* Icon circle with liquid glass styling */
@@ -185,23 +183,22 @@
 
     /* nodes above lines by default */
     .node {
-      position: absolute;          /* already set, but ensures stacking works */
-      z-index: 1;                  /* baseline above the line */
+      position: absolute;          
+      z-index: 1;                  
     }
 
     /* bring the WHOLE hovered/click-open node (and its pill) to the top */
     .node[data-card]:hover,
     .node[data-card].open,
     .node[data-card]:focus-within {
-      z-index: 9999;               /* higher than any other node/line */
+      z-index: 9999;               
     }
 
     /* keep the expander on top inside its own context too */
     .node[data-card] .expander { z-index: 1; }
     .node[data-card]:hover .expander,
     .node[data-card].open .expander { z-index: 2; }  /* not strictly required, but safe */
-    /* --- Shorter pill that fits content, with right-aligned date --- */
-    /* tweak the cap if any pill can get too long */
+    
     :root { --pill-max: 380px; }
 
     .expander{
@@ -304,14 +301,14 @@
 
     /* Mobile-only timeline sizing and typography adjustments */
     @media (max-width: 480px) {
-      /* Make icon circle and collapsed pill smaller */
+      /* Make icon circle and collapsed pill even smaller */
       .expander{
-        left: -32px; top: -32px;
-        height: 64px; width: 64px;
-        border-radius: 32px;
+        left: -28px; top: -28px;
+        height: 56px; width: 56px;
+        border-radius: 28px;
       }
-      .exp-icon{ flex: 0 0 64px; height: 64px; }
-      .exp-icon img{ width: 30px; height: 30px; }
+      .exp-icon{ flex: 0 0 56px; height: 56px; }
+      .exp-icon img{ width: 26px; height: 26px; }
 
       /* Keep expanded pill with slightly smaller radius on mobile */
       .node[data-card]:hover .expander,
@@ -319,15 +316,17 @@
 
       /* Stack text with date under title on mobile */
       .exp-content{
-        gap: 8px;
-        padding: 0 12px 0 10px;
+        gap: 4px;
+        padding: 0 10px 0 6px;
         flex-direction: column;
         align-items: flex-start;
       }
-      .card-title{ font-size: 14px; }
-      .card-subtitle{ font-size: 12px; display:block; }
+      .card-title{ font-size: 12px; }
+      .card-subtitle{ font-size: 11px; display:block; }
       .card-subtitle::after{ content:''; }
-      .card-date{ font-size: 12px; margin-left: 0; display:block; }
+      .card-date{ font-size: 11px; margin-left: 0; display:block; }
+      /* Slightly shorter expanded pill on small phones */
+      :root { --pill-max: 200px; }
     }
 
     /* Ensure overrides also apply up to tablet widths */
@@ -336,8 +335,8 @@
       :root { --pill-max: 220px; }
 
       /* Align whole timeline left */
-      .timeline-wrap { margin-left: 0; }
-      .timeline-line { left: 5%; right: auto; width: 85%; }
+      .timeline-wrap { margin-left: 0; margin-right: auto; }
+      .timeline-line { left: 6%; right: auto; width: 85%; }
 
       /* Shift stems slightly left for better fit */
       .stem-left-bottom{ left:14% !important; }
@@ -479,7 +478,7 @@
       <div class="nav-links">
         <a href="index.html">work</a>
         <a href="about.html" class="active">about</a>
-        <a class="button" href="https://drive.google.com/file/d/1Selsbjrz4WKBo6rfFtpkLAl1MmUcKIwQ/view?usp=sharing" target="_blank">resume</a>
+        <a class="button" href="https://drive.google.com/file/d/1iiaJBpraR9XzEFWPnvUJw-jEm0uLX308/view?usp=sharing" target="_blank">resume</a>
       </div>
     </div>
   </nav>
