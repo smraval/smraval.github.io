@@ -664,7 +664,7 @@
       <div class="nav-links">
         <a href="../../index.html">work</a>
         <a href="../../about.html">about</a>
-        <a class="button" href="https://drive.google.com/file/d/1c_TvegHAvITjIXi9TJrZfV8WXVbkZO8o/preview" target="_blank">resume</a>
+        <a class="button" href="https://drive.google.com/file/d/1Selsbjrz4WKBo6rfFtpkLAl1MmUcKIwQ/view?usp=sharing" target="_blank">resume</a>
       </div>
     </div>
   </nav>
@@ -673,12 +673,12 @@
 
   <main class="project-page">
 
-    <header class="project-hero">
+    <header class="project-hero reveal">
       <figure class="project-hero-image">
         <img src="assets/pearl-thumbnail.svg" alt="Pearl app mockups" />
       </figure>
       
-      <div class="project-header-content">
+      <div class="project-header-content reveal">
         <div class="project-text-content">
           <div class="project-text-left">
             <h1 class="project-page-title">Pearl.</h1>
@@ -728,13 +728,13 @@ User Researcher</span>
         </div>
       </div>
 
-      <div class="context-section">
+      <div class="context-section reveal">
         <span class="section-label">CONTEXT</span>
         <!-- <p>Self-guided mental-health and wellbeing apps relying on guilt-based nudges see median retention plummet from <span class="highlight-stat">3.9%</span> at <span class="highlight-stat">15 days</span> to just <span class="highlight-stat">3.3%</span> by <span class="highlight-stat">day 30</span>.</p> -->
         <p>Amid constant notifications, doomscrolling, and digital fatigue, people are craving healthier ways to use their screens. Apple's Screen Time and Google's Digital Wellbeing offer options, but they often feel passive, confusing, or too easy to ignore. What's missing is a more engaging, personalized approach to truly shift digital habits.</p>
       </div>
 
-      <div class="challenge-section">
+      <div class="challenge-section reveal">
         <div class="problem-box">
           <span class="section-label">PROBLEM</span>
           <p>Design a mobile app that helps users build mindful digital habits in fun and engaging ways. The app should focus on encouraging healthy screen usage without relying on guilt or restriction. You may incorporate gamification, journaling, social accountability, or mindfulness elements.</p>
@@ -748,12 +748,12 @@ User Researcher</span>
           <!-- <p class="question-lead">Which brings us to ask...</p> -->
         </div>
       </div>
-      <div class="how-might-we">
+      <div class="how-might-we reveal">
         <span class="section-label">CHALLENGE</span>
         <p>How might we design a mobile app that promotes mindful digital habits in fun and engaging ways, without guilt or restriction?</p>
       </div>
 
-      <div class="research-section">
+      <div class="research-section reveal">
         <span class="section-label">USER RESEARCH</span>
         <h2>Competitive Analysis</h2>
         <p> We evaluated popular productivity and digital wellbeing apps, such as <b>Flora</b>, <b>Focus Keeper</b>, and <b>Screen Time</b>, to understand their success and shortcomings in supporting healthy screen habits for college students.</p>
@@ -782,7 +782,7 @@ User Researcher</span>
         </div>
       </div>
 
-      <div class="iterations-section">
+      <div class="iterations-section reveal">
         <span class="section-label">ITERATIONS</span>
         <p>Our aim was to create a streamlined, all-in-one solution that cut down on excessive screen time, staying true to our mission of reducing digital distractions. We focused on a clean, welcoming interface and, after several design iterations, developed these three polished concepts.</p>
         <img src="assets/pearl-iterations.avif" alt="Iteration doodles" class="full-width-media">
@@ -817,7 +817,7 @@ User Researcher</span>
         <img src ="assets/info-architec.svg" alt = "info architecture diagram" class="full-width-media">
       </div>
 
-      <div class="final-designs-section">
+      <div class="final-designs-section reveal">
         <span class="section-label">FINAL DESIGNS</span>
         <h2>Meet Pearl!</h2>
         
@@ -880,7 +880,7 @@ User Researcher</span>
         </div>
       </div>
 
-      <div class="takeaways-section">
+      <div class="takeaways-section reveal">
         <span class="section-label">REFLECTIONS</span>
         <!-- <h2>Key Takeaways</h2> -->
         <p>Our final Pearl prototype was evaluated at the Jumpstart Spring Designathon, earning perfect scores in user research, experience, interface, and creativity. The judges recognized the strength of our concept, execution, and focus on user needs earning us First Place!</p>
@@ -905,6 +905,20 @@ User Researcher</span>
   <footer-component></footer-component>
 
   <script>
+    // Reveal-on-scroll for project content
+    (function(){
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    })();
+
     // Autoplay videos when they come into viewport
     function setupVideoAutoplay() {
       const videos = document.querySelectorAll('.design-video');

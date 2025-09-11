@@ -15,15 +15,17 @@
 
 --grad-dynamic: linear-gradient(
     90deg,
-    #F5F5F5   0%,
-    #A0B6DB  12.5%,
-    #919BE4  25%,
-    #FFDFCB  37.5%,
-    #FFCF93  50%,
-    #EED0C7  62.5%,
-    #E6EAFE  75%,
-    #ECF5FF 100%,
-    #F5F5F5 100%
+    #9bb0ce   0%,
+    #A0B6DB  10%,
+    #919BE4  20%,
+    #FFDFCB  30%,
+    #FFCF93  40%,
+    #FFE4B5  50%,
+    #f5dce7  60%,
+    #b3cfee 70%,
+    #A0B6DB 80%,
+    #919BE4 90%,
+    #9bb0ce 100%
   );
 
   /* Design tokens */

@@ -370,7 +370,7 @@
       <div class="nav-links">
         <a href="../../index.html">work</a>
         <a href="../../about.html">about</a>
-        <a class="button" href="https://drive.google.com/file/d/1c_TvegHAvITjIXi9TJrZfV8WXVbkZO8o/preview" target="_blank">resume</a>
+        <a class="button" href="https://drive.google.com/file/d/1Selsbjrz4WKBo6rfFtpkLAl1MmUcKIwQ/view?usp=sharing" target="_blank">resume</a>
       </div>
     </div>
   </nav>
@@ -379,12 +379,12 @@
 
   <main class="project-page">
 
-    <header class="project-hero">
+    <header class="project-hero reveal">
       <figure class="project-hero-image">
         <img src="assets/speak-easy-hub.svg" alt="SpeakEasy app screens" />
       </figure>
       
-      <div class="project-header-content">
+      <div class="project-header-content reveal">
         <div class="project-text-content">
           <div class="project-text-left">
             <h1 class="project-page-title">SpeakEasy</h1>
@@ -427,31 +427,31 @@
         <p>Speak Easy is an <strong class="gradient-text">all-in-one game designed to support individuals who stutter</strong> by providing engaging and interactive activities to practice speaking. At the same time, Speak Easy helps improve speech technologies by collecting valuable data to enhance speech recognition and fluency support. Our mission is to empower users with confidence in their speech while contributing to the future of inclusive communication technology.</p>
       </div>
 
-      <div class="problem-section">
+      <div class="problem-section reveal">
         <span class="section-label">PROBLEM</span>
         <h2>Challenge</h2>
         <p>Design a mobile app that empowers individuals who stutter to practice speaking confidently in a supportive and low-pressure environment. The app should also encourage voluntary data contribution for more inclusive AI speech technologies, with a focus on user consent, transparency, and clarity around dataset use. You may incorporate elements like gamification, progress tracking, or personalized goals to make the experience engaging and user-driven. <b>This lead us to the question:</b></p>
       </div>
 
-      <div class="challenge">
+      <div class="challenge reveal">
         <p class="highlight"><strong>How might we empower individuals who stutter to practice speaking confidently in a supportive environment while contributing to more inclusive speech recognition technologies?​</strong></p>
       </div>
 
-      <div class="context">
+      <div class="context reveal">
         <span class="section-label">GOALS</span>
         <h2>Context</h2>
         <p><b>Over 70 million people stutter globally, yet most speech technologies fail to serve them, because they're trained only on fluent speech.</b></p>
         <p>Current speech technologies, such as automated phone menus or computer-generated captions, often fail to work well for people who stutter due to training on fluent speech. To make these speech technologies more responsive and accessible for people who stutter, it is important to collect more diverse stuttered speech data to improve these technologies.</p>
       </div>
 
-      <div class="concept">
+      <div class="concept reveal">
         <h2>Concept</h2>
         <p>Speak Easy reimagines classic games like <b>Scattergories</b>, <b>Wavelength</b>, and <b>Brainteasers</b> as interactive tools for practicing speech. Instead of drills that feel clinical or repetitive, users are invited into playful challenges where they describe, guess, and respond out loud—just like they would in a group game night.</p>
         
         <p>By blending the fun of category prompts, scale-based guessing, and puzzle-style thinking with structured voice practice, <b>peak Easy lowers the pressure of speaking while keeping users engaged</b>. Each round encourages natural, spontaneous speech, while also generating valuable data to train more inclusive speech recognition systems. The result is a game that builds confidence, feels rewarding in the moment, and contributes to better communication technology for everyone.</p>
       </div>
             
-      <div class="goals-section">
+      <div class="goals-section reveal">
         <h2>Pillars</h2>
         <div class="elements-grid">
         <div class="element">
@@ -484,7 +484,7 @@
     </section>
   
 
-    <section class="login-transparency">
+    <section class="login-transparency reveal">
       <div class="login-text">
         <h2>Transparency and User Consent</h2>
         <p>We ensured users knew precisely where their data was going and how their voice recordings would be used. Based on interviews, transparency emerged as the key expectation, so we treated it as a non-negotiable top priority.</p>
@@ -492,7 +492,7 @@
       <img src="assets/transparency.png" alt="SpeakEasy login screen with transparency" />
     </section>
 
-    <section class="reflections">
+    <section class="reflections reveal">
       <div class="section-header">
         <span class="section-label">REFLECTIONS</span>
         <h2>Final Thoughts</h2>
@@ -511,7 +511,7 @@
       </div>
     </section>
 
-    <div class="presenting-section">
+    <div class="presenting-section reveal">
       <!-- <h3>Presenting our final design!</h3>
       <img src="assets/final.svg" alt="SpeakEasy final design" /> -->
       <a href="https://www.figma.com/proto/XvhbE3Adqd3c6aluez2vnO/Speakeasy?page-id=0%3A1&node-id=946-42173&p=f&viewport=946%2C332%2C0.07&t=x5DmdrIaXjlQyweG-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=946%3A42173&show-proto-sidebar=1" class="red-prototype-button" target="_blank">
@@ -522,6 +522,21 @@
       </a>
     </div>
 
+  <script>
+    // Reveal-on-scroll for project content
+    (function(){
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    })();
+  </script>
   </main>
 
 

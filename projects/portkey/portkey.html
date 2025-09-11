@@ -390,7 +390,7 @@
       <div class="nav-links">
         <a href="../../index.html">work</a>
         <a href="../../about.html">about</a>
-        <a class="button" href="https://drive.google.com/file/d/1c_TvegHAvITjIXi9TJrZfV8WXVbkZO8o/preview" target="_blank">resume</a>
+        <a class="button" href="https://drive.google.com/file/d/1Selsbjrz4WKBo6rfFtpkLAl1MmUcKIwQ/view?usp=sharing" target="_blank">resume</a>
       </div>
     </div>
   </nav>
@@ -398,12 +398,12 @@
   <a href="../../index.html" class="back-arrow">←</a>
 
   <main class="project-page">
-    <header class="project-hero">
+    <header class="project-hero reveal">
       <figure class="project-hero-image">
         <img src="assets/portkey-mockup.png" alt="Portkey360 platform interface" />
       </figure>
       
-      <div class="project-header-content">
+      <div class="project-header-content reveal">
         <div class="project-text-content">
           <div class="project-text-left">
             <h1 class="project-page-title">Portkey360</h1>
@@ -451,7 +451,7 @@ PyTorch</span>
         <p>It combines a Next.js + React Three Fiber frontend with a FastAPI backend serving Stable Diffusion v1.5 through Hugging Face Diffusers. The architecture demonstrates how generative AI can power interactive 3D experiences on the web.</p>
       </div>
 
-      <div class="generative-section">
+      <div class="generative-section reveal">
         <span class="section-label">FEATURES</span>
         <h2>Generative Panoramas in Real Time</h2>
         <p>Portkey 360° allows users to describe any scene in words and transform it into a 360° panorama within seconds. These outputs are rendered with React Three Fiber and a WebGL viewer, enabling intuitive navigation inside the generated scene.</p>
@@ -466,7 +466,7 @@ PyTorch</span>
         </div>
       </div>
 
-      <div class="infrastructure-section">
+      <div class="infrastructure-section reveal">
         <span class="section-label">TECHNOLOGY</span>
         <h2>Inference Infrastructure</h2>
         <p>The backend, built with FastAPI, handles text-to-image inference requests and integrates directly with PyTorch + Diffusers. Instead of containerization, the system is designed for local development and GPU execution, with manual environment setup for reproducibility.</p>
@@ -496,7 +496,7 @@ PyTorch</span>
       </div>
 
 
-      <div class="challenges-section">
+      <div class="challenges-section reveal">
         <span class="section-label">CHALLENGES</span>
         <h2>Navigating Panorama Distortions</h2>
         <p>One challenge was adapting Stable Diffusion to panoramic images. Training custom LoRA weights introduced distortions when converting to 360° projections, and the model struggled to generalize. I ended up relying on the base model with careful prompt engineering, which gave more reliable panoramas with fewer artifacts.</p>        
@@ -515,7 +515,7 @@ PyTorch</span>
         </div>
       </div>
 
-      <div class="future-section">
+      <div class="future-section reveal">
         <span class="section-label">FUTURE</span>
         <h2>Immersive Worldbuilding</h2>
         <p>The next stage of Portkey 360° is to expand beyond static panoramas toward <strong class="green-gradient">immersive</strong> and <strong class="green-gradient">interactive experiences</strong>:</p>
@@ -532,6 +532,21 @@ PyTorch</span>
       </div>
     </section>
     
+  <script>
+    // Reveal-on-scroll for project content
+    (function(){
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    })();
+  </script>
   </main>
 
   <footer-component></footer-component>
