@@ -128,7 +128,7 @@ class FooterComponent extends HTMLElement {
             left: auto !important;
             transform: none !important;
             width: 100%;
-            display: block;
+            display: inline-block;
           }
         }
       </style>

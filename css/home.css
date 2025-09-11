@@ -670,8 +670,11 @@ h1{
   nav {
     padding: 16px 20px;
   }
+  /* Ensure regular and scrolled have same top offset on mobile */
+  body.home-page nav { top: 11.5px; }
   
   .nav-container {
+    top:12px;
     gap: 16px;
   }
   
@@ -681,7 +684,7 @@ h1{
   
   /* Floating glass effect mobile styles */
   body.home-page nav.scrolled {
-    top: 0;
+    top: 11.5px;
     width: calc(100% - 40px); /* Same width as nav-container (20px padding on each side) */
     padding: 16px 20px; /* EXACT same padding as original mobile navigation */
   }
@@ -718,6 +721,14 @@ h1{
     gap:3rem 0;
     transition: all 0.3s ease;
   }
+  /* Stack meta above content on mobile */
+  .project-info{
+    grid-template-columns: 1fr;
+    row-gap: 0.5rem;
+  }
+  /* Hide tech stack and figma icons on mobile */
+  .tech-stack,
+  .figma-icon { display: none !important; }
   .project-media{
     order:-1;
     border-radius:24px;
@@ -750,7 +761,7 @@ h1{
   
   /* Floating glass effect small mobile styles */
   body.home-page nav.scrolled {
-    top: 0;
+    top: 11.5px;
     width: calc(100% - 32px); /* Same width as nav-container (16px padding on each side) */
     padding: 12px 16px; /* EXACT same padding as original small mobile navigation */
   }

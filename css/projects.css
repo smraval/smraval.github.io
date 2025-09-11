@@ -445,6 +445,7 @@
   }
   .back-arrow {
     left: 20px;
+    top: 94px; /* moved slightly down on mobile */
   }
   
   /* Add space between back arrow and hero image */
@@ -453,19 +454,31 @@
   }
   
   .project-text-content {
-    flex-direction: column;
-    gap: 1rem;
+    flex-direction: row;        /* keep title and button on one line */
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;            /* allow wrap if space is tight */
   }
   
   .project-meta-info {
     flex-direction: column;
     gap: 1rem;
+    align-items: center;
+    justify-content: center;
   }
   
   .prototype-button {
-    align-self: flex-start;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
+    align-self: center;       /* inline with title */
+    margin-top: 0;            /* same line as title */
+    margin-bottom: 0;
+  }
+  /* Ensure all project page buttons match on mobile */
+  .red-prototype-button,
+  .blue-prototype-button {
+    align-self: center;
+    margin-top: 0;
+    margin-bottom: 0;
   }
   
   .project-hero-image img[src*="portkey-mockup"],
@@ -483,4 +496,9 @@
   .project-meta-info {
     padding: 0;
   }
+  .meta-item { align-items: center; text-align: center; }
+  .meta-value { text-align: center; }
+
+  /* Give project taglines a little breathing room on mobile */
+  .project-tagline { margin-bottom: 0.5rem; }
 }

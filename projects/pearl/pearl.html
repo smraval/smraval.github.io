@@ -11,6 +11,10 @@
   <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" media="(prefers-color-scheme: dark)">
   <!-- Preload main hero image for faster loading -->
   <link rel="preload" as="image" href="assets/pearl-thumbnail.svg">
+  <!-- Preload key videos for faster mobile playback -->
+  <link rel="preload" as="video" href="assets/timer.mp4" type="video/mp4">
+  <link rel="preload" as="video" href="assets/productivity.mp4" type="video/mp4">
+  <link rel="preload" as="video" href="assets/treasure-chest.mp4" type="video/mp4">
   <link rel="apple-touch-icon" href="../../blackfavicon.ico">
   
   <link rel="stylesheet" href="../../css/styles.css" />
@@ -625,8 +629,8 @@
       
       .overview-layout { position: static; }
       .overview-text { padding-right: 0; margin-right: 0; }
-      .overview-figure { position: static; transform: none; margin-top: 0.5rem; }
-      .overview-figure img { height: 60px !important; }
+      .overview-figure { position: static; transform: none; margin: 0.75rem auto 0; text-align: center; }
+      .overview-figure img { height: 60px !important; display: block; margin: 0 auto; }
 
       .design-categories {
         gap: 1.5rem;
@@ -675,7 +679,7 @@
 
     <header class="project-hero reveal">
       <figure class="project-hero-image">
-        <img src="assets/pearl-thumbnail.svg" alt="Pearl app mockups" />
+        <img src="assets/pearl-thumbnail.svg" alt="Pearl app mockups" loading="eager" fetchpriority="high" decoding="async" />
       </figure>
       
       <div class="project-header-content reveal">
@@ -825,7 +829,7 @@ User Researcher</span>
           <div class="design-category">
             <div class="category-content">
               <div class="video-container">
-                <video class="design-video" muted loop>
+                <video class="design-video" muted loop preload="auto" playsinline>
                   <source src="assets/timer.mp4" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
@@ -843,7 +847,7 @@ User Researcher</span>
           <div class="design-category">
             <div class="category-content">
               <div class="video-container">
-                <video class="design-video" muted loop>
+                <video class="design-video" muted loop preload="auto" playsinline>
                   <source src="assets/productivity.mp4" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
@@ -861,7 +865,7 @@ User Researcher</span>
           <div class="design-category">
             <div class="category-content">
               <div class="video-container">
-                <video class="design-video" muted loop>
+                <video class="design-video" muted loop preload="auto" playsinline>
                   <source src="assets/treasure-chest.mp4" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>

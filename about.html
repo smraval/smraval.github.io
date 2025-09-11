@@ -148,11 +148,13 @@
     /* Typography */
     .card-text{ line-height:1.15; flex:1; min-width:0; }
     .card-title{ font-weight:600; font-size:16px; color:#0f0f0f; margin-bottom: 4px; }
-    .card-subtitle{ font-size:14px; color:#596070; }
-    .card-date{ font-size:14px; color:#b0b4b9; margin-left:auto; }
+    .card-subtitle{ font-size:14px; color:#596070; display:inline; }
+    .card-subtitle::after{ content:'\00A0\2022\00A0'; color:#b0b4b9; margin: 0 1px; }
+    .card-date{ font-size:14px; color:#b0b4b9; display:inline; margin-left:0; }
 
     /* Hover: compact pill + round corners */
-    .node[data-card]:hover .expander{
+    .node[data-card]:hover .expander,
+    .node[data-card].open .expander{
       width: 480px;
       border-radius: 40px;
       background: rgba(255, 255, 255, 0.6);
@@ -161,11 +163,13 @@
         0 12px 40px rgba(0, 0, 0, 0.15),
         inset 0 1px 0 rgba(255, 255, 255, 0.8);
     }
-    .node[data-card]:hover .exp-content{
+    .node[data-card]:hover .exp-content,
+    .node[data-card].open .exp-content{
       max-width: 400px;
       opacity: 1;
     }
-    .node[data-card]:hover .expander {
+    .node[data-card]:hover .expander,
+    .node[data-card].open .expander {
       z-index: 10;
     }
 
@@ -185,15 +189,17 @@
       z-index: 1;                  /* baseline above the line */
     }
 
-    /* bring the WHOLE hovered node (and its pill) to the top */
+    /* bring the WHOLE hovered/click-open node (and its pill) to the top */
     .node[data-card]:hover,
+    .node[data-card].open,
     .node[data-card]:focus-within {
       z-index: 9999;               /* higher than any other node/line */
     }
 
     /* keep the expander on top inside its own context too */
     .node[data-card] .expander { z-index: 1; }
-    .node[data-card]:hover .expander { z-index: 2; }  /* not strictly required, but safe */
+    .node[data-card]:hover .expander,
+    .node[data-card].open .expander { z-index: 2; }  /* not strictly required, but safe */
     /* --- Shorter pill that fits content, with right-aligned date --- */
     /* tweak the cap if any pill can get too long */
     :root { --pill-max: 380px; }
@@ -205,8 +211,41 @@
       display: inline-flex;
     }
 
+    /* Manual-closed state overrides hover so click-to-close works while hovered */
+    .node[data-card].manual-closed .expander {
+      width: 74px !important;
+      max-width: 74px !important;
+      border-radius: 37px !important;
+      background: rgba(255, 255, 255, 0.4) !important;
+      border: 1px solid rgba(255, 255, 255, 0.5) !important;
+      box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+      transform: none !important; /* prevent any lateral shift */
+    }
+    .node[data-card].manual-closed .exp-content {
+      max-width: 0 !important;
+      opacity: 0 !important;
+    }
+
+    /* Mobile-specific manual-close should match the smaller collapsed size */
+    @media (max-width: 768px) {
+      .node[data-card].manual-closed .expander {
+        width: 60px !important;
+        max-width: 60px !important;
+        height: 60px !important;
+        border-radius: 30px !important;
+        left: -30px !important;
+        top: -30px !important;
+      }
+      .node[data-card].manual-closed .exp-content {
+        max-width: 0 !important;
+        opacity: 0 !important;
+        padding: 0 !important;
+      }
+    }
+
     /* on hover, let the pill expand only as much as it needs (up to a cap) */
-    .node[data-card]:hover .expander{
+    .node[data-card]:hover .expander,
+    .node[data-card].open .expander{
       width: 400px;
       max-width: var(--pill-max);
       border-radius: 40px;
@@ -228,15 +267,26 @@
     }
 
     /* reveal content when expanded */
-    .node[data-card]:hover .exp-content{ opacity: 1; }
+    .node[data-card]:hover .exp-content,
+    .node[data-card].open .exp-content{ opacity: 1; }
 
     /* text blocks */
     .card-text{ flex: 1; min-width: 0; line-height: 1.15; text-align: left; }
 
-    /* Elongate Adobe pill slightly to fit all text */
-    .node-adobe[data-card]:hover .expander{
-      width: 420px;
+    /* Elongate Adobe pill slightly to fit all text, but keep inside viewport */
+    .node-adobe[data-card]:hover .expander,
+    .node-adobe[data-card].open .expander{
+      width: 422px;
+      max-width: var(--pill-max);
       transition: max-width .4s ease, border-radius .4s ease, box-shadow .4s ease;
+    }
+
+    /* Reduce space between Adobe icon and text */
+    .node-adobe[data-card] .exp-icon{ margin-right: 6px; }
+    .node-adobe[data-card] .exp-content{
+      gap: 8px;
+      padding-left: 8px !important;
+      padding-right: 16px;
     }
 
     .experiences-header h2{
@@ -250,6 +300,87 @@
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
+
+    /* Mobile-only timeline sizing and typography adjustments */
+    @media (max-width: 480px) {
+      /* Make icon circle and collapsed pill smaller */
+      .expander{
+        left: -32px; top: -32px;
+        height: 64px; width: 64px;
+        border-radius: 32px;
+      }
+      .exp-icon{ flex: 0 0 64px; height: 64px; }
+      .exp-icon img{ width: 30px; height: 30px; }
+
+      /* Keep expanded pill with slightly smaller radius on mobile */
+      .node[data-card]:hover .expander,
+      .node[data-card].open .expander{ border-radius: 32px; }
+
+      /* Stack text with date under title on mobile */
+      .exp-content{
+        gap: 8px;
+        padding: 0 12px 0 10px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .card-title{ font-size: 14px; }
+      .card-subtitle{ font-size: 12px; display:block; }
+      .card-subtitle::after{ content:''; }
+      .card-date{ font-size: 12px; margin-left: 0; display:block; }
+    }
+
+    /* Ensure overrides also apply up to tablet widths */
+    @media (max-width: 768px) {
+      /* Reduce expanded pill maximum width on mobile */
+      :root { --pill-max: 220px; }
+
+      /* Align whole timeline left */
+      .timeline-wrap { margin-left: 0; }
+      .timeline-line { left: 5%; right: auto; width: 85%; }
+
+      /* Shift stems slightly left for better fit */
+      .stem-left-bottom{ left:14% !important; }
+      .stem-top-be{ left:26% !important; }
+      .stem-center{ left:44% !important; }
+      .stem-right-top{ left:58% !important; }
+      .stem-right-bottom{ left:68% !important; }
+
+      /* Shift nodes left + align Baskin node with its stem */
+      .node-be{ left:26% !important; }
+      .node-set{ left:44% !important; }
+      .node-hs{ left:58% !important; }
+      .node-adobe{ left:68% !important; }
+      /* Smaller icon/pill in collapsed state; allow hover/open to expand */
+      .node[data-card] .expander{ left:-30px; top:-30px; height:60px; width:60px; max-width:60px; border-radius:30px; }
+      .node[data-card] .exp-icon{ flex:0 0 60px; height:60px; }
+      .node[data-card] .exp-icon img{ width:28px; height:28px; }
+
+      /* Column layout so date/subtitle sits under title */
+      .node[data-card] .exp-content{ flex-direction: column !important; align-items:flex-start !important; gap:2px !important; padding:0 10px 0 4px !important; }
+
+      /* Smaller type */
+      .node[data-card] .card-title{ font-size:13px !important; }
+      .node[data-card] .card-subtitle{ font-size:12px !important; display:block !important; }
+      .node[data-card] .card-subtitle::after{ content:'' !important; }
+      .node[data-card] .card-date{ font-size:12px !important; margin-left:0 !important; order: 2; display:block !important; }
+    }
+
+    /* Responsive: scale timeline on mobile to make the whole unit smaller */
+    @media (max-width: 768px) {
+      .timeline-wrap {
+        transform: scale(0.85);
+        transform-origin: top center;
+        height: 200px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .timeline-wrap {
+        transform: scale(0.75);
+        transform-origin: top center;
+        height: 180px;
+      }
     }
 
     /* ====== FADE-IN ANIMATIONS ====== */
@@ -399,7 +530,8 @@
               <div class="exp-content">
                 <div class="card-text">
                   <div class="card-title">Tech4Good</div>
-                  <div class="card-subtitle">Web Developer • Dec 2024 – Present</div>
+                  <div class="card-subtitle">Web Developer</div>
+                  <div class="card-date">Dec 2024 – Present</div>
                 </div>
               </div>
               </div>
@@ -414,14 +546,15 @@
               <div class="exp-content">
                 <div class="card-text">
                   <div class="card-title">Baskin Engineering</div>
-                  <div class="card-subtitle">Group Tutor • Jan 2025 – Present</div>
+                  <div class="card-subtitle">Group Tutor</div>
+                  <div class="card-date">Jan 2025 – Present</div>
                 </div>
               </div>
               </div>
             </div>
 
             <!-- Center-bottom: New Experience -->
-            <div class="node node-bottom" style="left: 50%;" data-card>
+            <div class="node node-bottom node-set" style="left: 50%;" data-card>
               <div class="expander">
                 <div class="exp-icon">
                   <img src="assets/images/set.png" alt="VR/AR Researcher" />
@@ -429,7 +562,8 @@
               <div class="exp-content">
                 <div class="card-text">
                   <div class="card-title">SET Lab</div>
-                  <div class="card-subtitle">VR/AR Researcher • March 2025 – Present</div>
+                  <div class="card-subtitle">VR/AR Researcher</div>
+                  <div class="card-date">March 2025 – Present</div>
                 </div>
               </div>
               </div>
@@ -444,7 +578,8 @@
               <div class="exp-content">
                 <div class="card-text">
                   <div class="card-title">IBC</div>
-                  <div class="card-subtitle">Product Engineer Intern • Jun – Sep 2025</div>
+                  <div class="card-subtitle">Product Engineer Intern</div>
+                  <div class="card-date">Jun – Sep 2025</div>
                 </div>
               </div>
               </div>
@@ -459,7 +594,8 @@
               <div class="exp-content">
                 <div class="card-text">
                   <div class="card-title">Adobe</div>
-                  <div class="card-subtitle">Student Ambassador • Aug 2025 – Present</div>
+                  <div class="card-subtitle">Student Ambassador</div>
+                  <div class="card-date">Aug 2025 – Present</div>
                 </div>
               </div>
               </div>
@@ -474,5 +610,37 @@
 
 
   <footer-component></footer-component>
+  <script>
+    // Toggle open/close on timeline nodes
+    (function(){
+      const nodes = document.querySelectorAll('.timeline-wrap .node[data-card]');
+      nodes.forEach(node => {
+        node.addEventListener('click', function(e){
+          // Ignore clicks on links
+          if (e.target && (e.target.tagName === 'A' || e.target.closest('a'))) return;
+
+          const isOpen = this.classList.contains('open');
+          const isManualClosed = this.classList.contains('manual-closed');
+
+          // Close all others and clear their manual-closed state
+          nodes.forEach(n => n.classList.remove('open','manual-closed'));
+
+          if (isOpen || (!isOpen && !isManualClosed && this.matches(':hover'))) {
+            // If it's open OR it's being opened by hover, collapse and keep it closed while hovered
+            this.classList.remove('open');
+            this.classList.add('manual-closed');
+          } else {
+            // Open this one
+            this.classList.add('open');
+          }
+        });
+
+        // When the mouse leaves, allow hover to open again by clearing manual-closed
+        node.addEventListener('mouseleave', function(){
+          this.classList.remove('manual-closed');
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
