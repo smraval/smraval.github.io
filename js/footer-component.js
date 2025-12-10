@@ -90,7 +90,7 @@ class FooterComponent extends HTMLElement {
         }
 
         .signature::after {
-          content: "LAST UPDATED - 09.01.25";
+          content: "LAST UPDATED - 12.01.25";
           position: absolute;
           bottom: 100%;
           right: 0;
